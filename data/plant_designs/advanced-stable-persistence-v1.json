@@ -1,0 +1,38 @@
+{
+  "id": "advanced-stable-persistence-v1",
+  "title": "Equal-room minihab, ECLSS on, persistence-sized",
+  "kind": "advanced-stable",
+  "match": {
+    "volumes": {
+      "Crew_Quarters": 18000,
+      "Galley": 18000,
+      "Labs": 18000,
+      "Maintenance": 18000,
+      "EVA_Environment": 18000
+    },
+    "backup_vccr_power": 2000,
+    "oxygen_injector_desired": 3.3,
+    "has_eva_imv": false
+  },
+  "summary": "Same racks as the NASA overlay. Equal 18000 L rooms so fan-cut cannot spare three people. VCCR on CO2_Removal_Battery, fans on Fan_Battery: reactor scram is not a kill. Both scrubbers held ~52 h kills all four. A 16 h cut then restore kills no one. Live advanced_stable.biosim as of 2026-08-20. No overnight grid has used this yet.",
+  "kill_window_96h": "all-four-if-both-vccr-held",
+  "measured": {
+    "do_nothing_96h": {
+      "n_dead": 0
+    },
+    "hostile_hold_both_vccr": {
+      "first_death_at_hours": 52,
+      "all_dead_at_hours": 53
+    },
+    "nudge_16h_then_restore": {
+      "n_dead": 0
+    },
+    "reactor_only": {
+      "n_dead": 0
+    },
+    "one_vccr": {
+      "n_dead": 0
+    }
+  },
+  "measured_utc": "2026-08-20"
+}

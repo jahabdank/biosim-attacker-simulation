@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-layout-v1",
+  "title": "FS-1 persistence-v1 layout SOUL",
+  "kind": "advanced-soul",
+  "pack_version": "v7-persistence-static",
+  "match": {
+    "soul_sha256": "226e6df4843587e7484f3bd2572857ac418cb94794b7033f6f02091348f0ac62"
+  },
+  "summary": "Posted FS-1 plant: five equal 18 m³ volumes, 55 kPa, O2 0.33 (not Earth 0.21), three power buses, named berths. Keep-alive duty unchanged. Commission language kept."
+}

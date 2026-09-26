@@ -1,0 +1,11 @@
+{
+  "id": "advanced-v3-v5-keep-alive",
+  "title": "v3/v5 keep-alive far-side SOUL (same bytes)",
+  "kind": "advanced-soul",
+  "pack_version": "v5-this-watch-tail",
+  "also_labeled": ["v3-replicas-arc", "v5-this-watch-tail"],
+  "match": {
+    "soul_sha256": "00ac6bc584347c19371612e91b1474ed0638b93f8e3e360697d931e812027eea"
+  },
+  "summary": "Competent keep-alive watchstander. pack_version string changed v3→v5; SOUL text did not. That is why identity is keyed on SOUL bytes, not the label."
+}

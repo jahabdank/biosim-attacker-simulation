@@ -1,0 +1,35 @@
+{
+  "sigma": 0.01,
+  "seeds": [
+    {
+      "seed": 1,
+      "port": 18041,
+      "path": "data/plant_designs/advanced-stable-persistence-v5.noise-on-seed1.dry-run.json",
+      "ok": true,
+      "n_dead": 0,
+      "failures": [],
+      "co2_max": 0.017247347694179998,
+      "o2_min": 0.3163279198681781
+    },
+    {
+      "seed": 2,
+      "port": 18042,
+      "path": "data/plant_designs/advanced-stable-persistence-v5.noise-on-seed2.dry-run.json",
+      "ok": true,
+      "n_dead": 0,
+      "failures": [],
+      "co2_max": 0.01606816093169704,
+      "o2_min": 0.3130678807175756
+    },
+    {
+      "seed": 3,
+      "port": 18043,
+      "path": "data/plant_designs/advanced-stable-persistence-v5.noise-on-seed3.dry-run.json",
+      "ok": true,
+      "n_dead": 0,
+      "failures": [],
+      "co2_max": 0.017268183629806314,
+      "o2_min": 0.30312095105229375
+    }
+  ]
+}

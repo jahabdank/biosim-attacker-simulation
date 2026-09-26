@@ -1,0 +1,39 @@
+{
+  "id": "advanced-stable-persistence-v5",
+  "title": "Equal-room minihab, closed-loop PCA/CDRA, IMV damper, tank volume",
+  "kind": "advanced-stable",
+  "match": {
+    "volumes": {
+      "Crew_Quarters": 18000,
+      "Galley": 18000,
+      "Labs": 18000,
+      "Maintenance": 18000,
+      "EVA_Environment": 18000
+    },
+    "backup_vccr_power": 3,
+    "oxygen_injector_desired": 18,
+    "has_eva_imv": true,
+    "has_pyrolizer": false,
+    "fan_air_desired": 2500,
+    "vccr_linear": true,
+    "o2_store_volume": 250
+  },
+  "summary": "v4 laws plus: CDRA power-port is ppCO2 mmHg (0=inhibit); O2-PCA ppO2 kPa / N2-PCA total P kPa; IMV damper 0-1 with affinity power. RelativeFilter off until 3-seed. Untouched must hold 120 h.",
+  "kill_window_96h": "all-four-if-both-vccr-inhibited",
+  "measured": {
+    "do_nothing_120h": {
+      "n_dead": 0,
+      "o2_fraction_range": [
+        0.32,
+        0.32
+      ],
+      "co2_fraction_max_hab": 0.016,
+      "temperature_c_range": [
+        26.0,
+        26.4
+      ],
+      "report": "advanced-stable-persistence-v5.dry-run.json"
+    }
+  },
+  "measured_utc": "2026-08-21"
+}

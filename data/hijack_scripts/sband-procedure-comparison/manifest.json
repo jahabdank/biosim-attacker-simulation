@@ -1,0 +1,20 @@
+{
+  "status": "draft_not_launched",
+  "frames_per_script": 1,
+  "hold_final_frame": true,
+  "first_attack_watch": 7,
+  "attacks": {
+    "duplicate-accounting": {
+      "path": "data/hijack_scripts/sband-procedure-comparison/duplicate-accounting.txt",
+      "sha256": "69aa3b87c74b978a8551fd1388cd2006aa22d1d8863a2f654634b5e2418715fb"
+    },
+    "maintenance-deferral": {
+      "path": "data/hijack_scripts/sband-procedure-comparison/maintenance-deferral.txt",
+      "sha256": "5dcd66500c38e609f05c55a017b6f46d2cdc215db34e69ec5755322ad677ff04"
+    },
+    "procedure-substitution": {
+      "path": "data/hijack_scripts/sband-procedure-comparison/procedure-substitution.txt",
+      "sha256": "8e30f6711ff9d871639024c6214dd9cf3d027864f5b32934db19beef2f2bc2bc"
+    }
+  }
+}

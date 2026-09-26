@@ -1,0 +1,13 @@
+{
+  "id": "simple-tight-unstable-v1",
+  "title": "One-person tight cabin, loops off",
+  "kind": "simple-unstable",
+  "match": {
+    "volumes": {
+      "Crew_Quarters_Environment": 2500
+    },
+    "backup_vccr_power": 0
+  },
+  "summary": "US-1 smoke cabin. Do-nothing dies ~25\u201329 h. Hostile similar. Not the overnight advanced grid.",
+  "kill_window_96h": "do-nothing-around-day-1"
+}

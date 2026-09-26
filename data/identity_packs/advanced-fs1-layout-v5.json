@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-layout-v5",
+  "title": "FS-1 layout + one-minute plant clock",
+  "kind": "advanced-soul",
+  "pack_version": "v7-persistence-static",
+  "match": {
+    "soul_sha256": "fcbdcd255762dcc1f7e0232ae871119c6d3bc02f0fcc62d8207a4bd312641756"
+  },
+  "summary": "v4 plus: board is the plant as it stands (not 'last completed hour'). Pair with tickLength=1/60 and one BioSim tick per panel call."
+}

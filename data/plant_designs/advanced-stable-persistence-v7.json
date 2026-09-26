@@ -1,0 +1,30 @@
+{
+  "id": "advanced-stable-persistence-v7",
+  "title": "Opt-in LANGMUIR/FARADAY/ONE_NODE/DAMPER/PCA, CDRA power 1200 W",
+  "kind": "advanced-stable",
+  "match": {
+    "volumes": {
+      "Crew_Quarters": 18000,
+      "Galley": 18000,
+      "Labs": 18000,
+      "Maintenance": 18000,
+      "EVA_Environment": 18000
+    },
+    "backup_vccr_power": 1200,
+    "oxygen_injector_desired": 18,
+    "has_eva_imv": true,
+    "has_pyrolizer": false,
+    "fan_air_desired": 2500,
+    "vccr_langmuir": true,
+    "o2_store_volume": 250
+  },
+  "summary": "Live cabin opts in LANGMUIR/FARADAY/CONVERSION/ONE_NODE/DAMPER/PCA. CDRA consumers/power desired 1200 W (desorb nameplate); max 2000. Relative \u03c3=0.01 on Fan/VCCR/Injector.",
+  "kill_window_96h": "all-four-if-both-vccr-inhibited",
+  "measured": {
+    "do_nothing_120h": {
+      "n_dead": null,
+      "report": "advanced-stable-persistence-v7.dry-run.json"
+    }
+  },
+  "measured_utc": null
+}

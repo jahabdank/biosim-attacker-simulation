@@ -1,0 +1,106 @@
+# Copy outside the checkout and supply actual values. No model is contacted by default.
+# Model labels/settings are public; URLs/deployment strings/credentials are local configuration.
+[models."grok-4.7"]
+kind = "subscription"
+label = "Grok 4.7"
+context_window = 500000
+auth_file = "/run/secrets/operator-auth.json"
+
+[models."grok-4.6"]
+kind = "subscription"
+label = "Grok 4.6"
+context_window = 500000
+auth_file = "/run/secrets/operator-auth.json"
+
+[models."gpt-6-luna"]
+kind = "api"
+label = "GPT-6 Luna"
+model = "replace-with-deployment-id"
+api_backend = "responses"
+base_url = "https://provider.example.invalid/v1"
+credential_file = "/run/secrets/provider-key"
+auth_header = "Authorization"
+auth_prefix = "Bearer "
+context_window = 1050000
+max_completion_tokens = 8192
+pacing_group = "gpt-6-luna"
+
+[models."claude-sonnet-5"]
+kind = "api"
+label = "Claude Sonnet 5"
+model = "replace-with-deployment-id"
+api_backend = "chat_completions"
+base_url = "https://provider.example.invalid/v1"
+credential_file = "/run/secrets/provider-key"
+context_window = 1000000
+max_completion_tokens = 32000
+pacing_group = "claude"
+# For services requiring max_completion_tokens rather than max_tokens:
+# completion_token_field = "max_completion_tokens"
+
+[models."gpt-6-sol"]
+kind = "api"
+label = "gpt-6-sol"
+model = "replace-with-deployment-id"
+api_backend = "responses"
+base_url = "https://provider.example.invalid/v1"
+credential_file = "/run/secrets/provider-key"
+context_window = 1050000
+max_completion_tokens = 8192
+pacing_group = "gpt-6-sol"
+
+[models."gpt-6-astra"]
+kind = "api"
+label = "gpt-6-astra"
+model = "replace-with-deployment-id"
+api_backend = "responses"
+base_url = "https://provider.example.invalid/v1"
+credential_file = "/run/secrets/provider-key"
+context_window = 1050000
+max_completion_tokens = 8192
+pacing_group = "gpt-6-astra"
+
+[models."gpt-5.6-terra"]
+kind = "api"
+label = "gpt-5.6-terra"
+model = "replace-with-deployment-id"
+api_backend = "chat_completions"
+base_url = "https://provider.example.invalid/v1"
+credential_file = "/run/secrets/provider-key"
+context_window = 1050000
+max_completion_tokens = 8192
+pacing_group = "gpt-5.6-terra"
+
+[models."gpt-5.6-luna"]
+kind = "api"
+label = "gpt-5.6-luna"
+model = "replace-with-deployment-id"
+api_backend = "chat_completions"
+base_url = "https://provider.example.invalid/v1"
+credential_file = "/run/secrets/provider-key"
+context_window = 1050000
+max_completion_tokens = 8192
+pacing_group = "gpt-5.6-luna"
+
+[models."gpt-5.6-sol"]
+kind = "api"
+label = "gpt-5.6-sol"
+model = "replace-with-deployment-id"
+api_backend = "chat_completions"
+base_url = "https://provider.example.invalid/v1"
+credential_file = "/run/secrets/provider-key"
+context_window = 1050000
+max_completion_tokens = 8192
+pacing_group = "gpt-5.6-sol"
+
+# Distinct historical routed cohort: never alias this to native subscription.
+[models."grok-4.6-route-a"]
+kind = "api"
+label = "Grok 4.6 (route-a cohort)"
+model = "replace-with-deployment-id"
+api_backend = "chat_completions"
+base_url = "https://provider.example.invalid/v1"
+credential_file = "/run/secrets/provider-key"
+context_window = 200000
+max_completion_tokens = 8192
+pacing_group = "grok-4.6-route-a"

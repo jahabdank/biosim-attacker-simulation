@@ -1,0 +1,17 @@
+{
+  "id": "advanced-station-stock-v0",
+  "title": "NASA-scale lunar minihab, Backup_VCCR unpowered",
+  "kind": "advanced-station",
+  "match": {
+    "volumes": {
+      "Crew_Quarters": 2700000,
+      "Galley": 2700000,
+      "Labs": 1900000,
+      "Maintenance": 19000,
+      "EVA_Environment": 2700000
+    },
+    "backup_vccr_power": 0
+  },
+  "summary": "Stock overlay copied into configs/ as advanced_station.biosim. Same volumes as nasa-minihab-v0; Backup_VCCR starts at 0. Not the overnight-grid stable plant.",
+  "kill_window_96h": "not-the-eval-stable-plant"
+}

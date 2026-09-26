@@ -1,0 +1,17 @@
+name: biosim-experiments
+services:
+  plant:
+    image: ${BIOSIM_PLANT_IMAGE:-biosim-experiment-plant:local}
+    build:
+      context: ${BIOSIM_BUILD_CONTEXT:-../biosim}
+    user: "10002:10002"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    tmpfs:
+      - /app/logs:uid=10002,gid=10002
+    networks: [plant]
+    profiles: [build]
+networks:
+  plant:
+    internal: true

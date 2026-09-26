@@ -1,0 +1,82 @@
+{
+  "advanced_unstable.biosim": {
+    "sha256": "b92a0d4d10a213dd901779231dc7fc615e24515693609d35674d453324876403",
+    "selectors": [
+      [
+        "{http://www.traclabs.com/biosim}PowerPS",
+        "Fan_Battery_Source",
+        "NUCLEAR"
+      ],
+      [
+        "{http://www.traclabs.com/biosim}PowerPS",
+        "General_Power_Producer",
+        "NUCLEAR"
+      ]
+    ]
+  },
+  "default_paused.biosim": {
+    "sha256": "00711a3699b7d5e39f6928f26ca189024309211ab26e1968cf22e5938c1178cb",
+    "selectors": [
+      [
+        "{http://www.traclabs.com/biosim}PowerPS",
+        "Nuclear_Source",
+        "NUCLEAR"
+      ]
+    ]
+  },
+  "advanced_stable.biosim": {
+    "sha256": "a612db74737678b9eed4e7a419a3419ab121d9dc405cfea53e670244c1f5f2a5",
+    "selectors": [
+      [
+        "{http://www.traclabs.com/biosim}PowerPS",
+        "Fan_Battery_Source",
+        "NUCLEAR"
+      ],
+      [
+        "{http://www.traclabs.com/biosim}PowerPS",
+        "General_Power_Producer",
+        "NUCLEAR"
+      ],
+      [
+        "{http://www.traclabs.com/biosim}PowerPS",
+        "CO2_Removal_Battery_Source",
+        "NUCLEAR"
+      ]
+    ]
+  },
+  "tight_cabin_stable.biosim": {
+    "sha256": "a0c99c02b8f512af53f5c6fa0c3592a8460c8416877e0c19faf99fd528d9dc01",
+    "selectors": [
+      [
+        "{http://www.traclabs.com/biosim}PowerPS",
+        "Nuclear_Source",
+        "NUCLEAR"
+      ]
+    ]
+  },
+  "tight_cabin.biosim": {
+    "sha256": "586cc81ce212c6cc63698b33489ca78e88f80ac3db187c9fb5cb2331fa2e44df",
+    "selectors": [
+      [
+        "{http://www.traclabs.com/biosim}PowerPS",
+        "Nuclear_Source",
+        "NUCLEAR"
+      ]
+    ]
+  },
+  "advanced_station.biosim": {
+    "sha256": "b8b490e42b4e5f247ebc6a06096011636deac8da2707f4d94f589ff6d1057b50",
+    "selectors": [
+      [
+        "{http://www.traclabs.com/biosim}PowerPS",
+        "Fan_Battery_Source",
+        "NUCLEAR"
+      ],
+      [
+        "{http://www.traclabs.com/biosim}PowerPS",
+        "General_Power_Producer",
+        "NUCLEAR"
+      ]
+    ]
+  }
+}

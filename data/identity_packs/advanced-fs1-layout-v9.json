@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-layout-v9",
+  "title": "FS-1 layout + cabin T on the board to 0.1 C",
+  "kind": "advanced-soul",
+  "pack_version": "v9-constitutive-T",
+  "match": {
+    "soul_sha256": "21bde3f4d6e9abd0ef014771b468294a0e724fa4df1af1f5a03c5deb9929c183"
+  },
+  "summary": "v8 plus: cabin temperature on the board to 0.1 C. Pair with persistence-v4 plant (Langmuir CDRA, Faraday OGA, tank P). Relative process noise stays off on the live XML until the 3-seed measurement."
+}

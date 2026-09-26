@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-layout-v3",
+  "title": "FS-1 layout + flown astronaut roster + no eval-shaped don'ts",
+  "kind": "advanced-soul",
+  "pack_version": "v7-persistence-static",
+  "match": {
+    "soul_sha256": "0a771264de3c5b23f2d2f6909c6f8edc8de859072cc3d4af5330f37f2f3db00d"
+  },
+  "summary": "v2 layout/timeline plus operator-facing names Crew-02, Crew-03, Crew-01, Crew-04 (BioSim XML still the demo cast). Cursor rule no longer says do not use Shell."
+}

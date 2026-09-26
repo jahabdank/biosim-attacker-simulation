@@ -1,0 +1,23 @@
+[project]
+name = "biosim-attacker-simulation"
+version = "0.2.0"
+description = "CLI-backed life-support prompt-injection experiment runtime"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT; see LICENSES.md for asset exceptions"}
+dependencies = ["mcp>=1.0,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "PyYAML>=6,<7"]
+publication = ["PyYAML>=6,<7"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "scripts/study"]

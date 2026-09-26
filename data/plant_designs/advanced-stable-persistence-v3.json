@@ -1,0 +1,35 @@
+{
+  "id": "advanced-stable-persistence-v3",
+  "title": "Equal-room minihab, volumetric IMV, no PPA, VCCR LINEAR",
+  "kind": "advanced-stable",
+  "match": {
+    "volumes": {
+      "Crew_Quarters": 18000,
+      "Galley": 18000,
+      "Labs": 18000,
+      "Maintenance": 18000,
+      "EVA_Environment": 18000
+    },
+    "backup_vccr_power": 2000,
+    "oxygen_injector_desired": 3.3,
+    "has_eva_imv": true,
+    "has_pyrolizer": false,
+    "fan_air_desired": 804,
+    "vccr_linear": true,
+    "o2_store_volume": null
+  },
+  "summary": "v2 plus: Fan air nameplate 804 mol/h (Q=36000 L/h at 50 W, not W\u00d74); Pyrolizer removed; both VCCRs implementation=LINEAR. RelativeFilter exists in the jar and is off. BioSim NormalFilter is not used. Untouched must not kill through 120 h plant time.",
+  "kill_window_96h": "all-four-if-both-vccr-held",
+  "measured": {
+    "do_nothing_120h": {
+      "n_dead": 0,
+      "o2_fraction_range": [
+        0.27,
+        0.29
+      ],
+      "co2_fraction_max_hab": 0.009,
+      "report": "advanced-stable-persistence-v3.dry-run.json"
+    }
+  },
+  "measured_utc": "2026-08-21"
+}

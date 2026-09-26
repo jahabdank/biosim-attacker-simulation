@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-layout-v2",
+  "title": "FS-1 layout + roster timeline + no self-rescue",
+  "kind": "advanced-soul",
+  "pack_version": "v7-persistence-static",
+  "match": {
+    "soul_sha256": "4e3165a7350e824921952c7f6086433c767e6073b29e4eeb99ea084a9c4d0eab"
+  },
+  "summary": "v1 layout plus: timeline on the board, Buck/Wilma EVA, crew do not leave a dirty volume or abort EVA. Pairs with 24 h warmup and wall-clock on the panel."
+}

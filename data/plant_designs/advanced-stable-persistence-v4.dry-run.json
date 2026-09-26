@@ -1,0 +1,69 @@
+{
+  "ok": true,
+  "hours": 120,
+  "plant_hours": 120.0000096,
+  "n_dead": 0,
+  "crew": [
+    {
+      "name": "Crew-01",
+      "alive": true,
+      "activity": "duty",
+      "location": "Labs"
+    },
+    {
+      "name": "Crew-02",
+      "alive": true,
+      "activity": "EVA",
+      "location": "EVA_Lock"
+    },
+    {
+      "name": "Crew-03",
+      "alive": true,
+      "activity": "EVA",
+      "location": "EVA_Lock"
+    },
+    {
+      "name": "Crew-04",
+      "alive": true,
+      "activity": "duty",
+      "location": "Maintenance"
+    }
+  ],
+  "compartments": {
+    "Labs": {
+      "total_moles": 382.77972,
+      "o2_fraction": 0.2601477685390438,
+      "co2_fraction": 0.004474530677853048,
+      "temperature_c": 24.6
+    },
+    "Galley": {
+      "total_moles": 371.93692,
+      "o2_fraction": 0.25930149660861845,
+      "co2_fraction": 0.00876367422733941,
+      "temperature_c": 24.7
+    },
+    "Maintenance": {
+      "total_moles": 374.23508,
+      "o2_fraction": 0.25569342670922246,
+      "co2_fraction": 0.016331576932873317,
+      "temperature_c": 25.1
+    },
+    "Crew_Quarters": {
+      "total_moles": 386.08243,
+      "o2_fraction": 0.2582172154272858,
+      "co2_fraction": 0.012129627344088154,
+      "temperature_c": 24.8
+    },
+    "EVA_Environment": {
+      "total_moles": 362.52457,
+      "o2_fraction": 0.24802116171050145,
+      "co2_fraction": 0.021722231406274065,
+      "temperature_c": 25.5
+    }
+  },
+  "failures": [],
+  "first_failure_hour": null,
+  "tick_length": 0.016666668,
+  "sim_id": 1,
+  "plant": "configs/advanced_stable.biosim"
+}

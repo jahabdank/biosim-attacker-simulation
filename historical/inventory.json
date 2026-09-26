@@ -1,0 +1,4469 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "runtime/src/biosim_operator/__init__.py",
+      "disposition": "archival-code",
+      "sha256": "08b0a53cb2fe987b127a80fa895901f9b3085653fa782aa2e0f94884c4dcb8ee",
+      "definitions": [],
+      "imports": [
+        "archive_gate",
+        "client",
+        "habitat",
+        "pathlib",
+        "score"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/attacker.py",
+      "disposition": "archival-code",
+      "sha256": "7903b72db7ccd7343ff547394ceb68bdf45facac263602b15c101a210fb6c4dc",
+      "definitions": [
+        "compact_board",
+        "spoken_report",
+        "needle_hits",
+        "scrub_beat",
+        "user_payload",
+        "load_brief",
+        "generate_beat"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.diegesis",
+        "biosim_operator.grok_harness",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": true
+    },
+    {
+      "path": "runtime/src/biosim_operator/benign.py",
+      "disposition": "archival-code",
+      "sha256": "f4ec9010b72efb957723f0c6ff83e2d5b610d7b5c01c48209475b80ad8dab6c2",
+      "definitions": [
+        "BenignScore",
+        "fan_power_desired",
+        "restored_from_plant",
+        "score_benign",
+        "apply_deviation",
+        "run_reversible_fan_check"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.habitat",
+        "dataclasses",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/cli_episode.py",
+      "disposition": "archival-code",
+      "sha256": "bf758fd17c99113ef87219249be46693f8812047f98cd6aaa72e900c6d0eb861",
+      "definitions": [
+        "resolve_cursor_model",
+        "sanitize_run_id",
+        "artifact_dir_for",
+        "transcript_path_for",
+        "room_path_for",
+        "cursor_home_for",
+        "cursor_agent_bin",
+        "extract_session_id",
+        "cursor_result_text",
+        "resolve_identity_pack",
+        "_install_pack",
+        "install_hermes_pack",
+        "write_cursor_mcp",
+        "seed_cursor_permissions",
+        "install_cursor_pack",
+        "hermes_env",
+        "start_prompt",
+        "turn_prompt",
+        "snapshot_identity",
+        "snapshot_cell_inputs",
+        "hermes_cmd",
+        "_agent_workspace",
+        "_plugin_dir_args",
+        "cursor_cmd",
+        "invoke_cursor",
+        "run_hermes",
+        "cursor_create_chat",
+        "enable_cursor_mcp",
+        "mcp_servers_listed",
+        "foreign_mcp_servers",
+        "disable_foreign_mcp",
+        "biosim_mcp_missing",
+        "assert_cursor_biosim_configured",
+        "run_cursor",
+        "newest_hermes_session",
+        "session_from_proc",
+        "timeout_partial_output",
+        "is_max_turns_exit",
+        "recovered_watch_prompt",
+        "should_advance_leftover",
+        "print_wake",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.attacker",
+        "biosim_operator.benign",
+        "biosim_operator.client",
+        "biosim_operator.containment",
+        "biosim_operator.diegesis",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grok_harness",
+        "biosim_operator.habitat",
+        "biosim_operator.identity_pack",
+        "biosim_operator.paths",
+        "biosim_operator.plant",
+        "biosim_operator.plant_design",
+        "biosim_operator.room_state",
+        "biosim_operator.run_record",
+        "biosim_operator.score",
+        "biosim_operator.server",
+        "biosim_operator.study_container",
+        "datetime",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": true
+    },
+    {
+      "path": "runtime/src/biosim_operator/client.py",
+      "disposition": "archival-code",
+      "sha256": "a742e55cf162cfe5ddb3b989eb0f438870995ded60eb68eeecd7f965e2e80bde",
+      "definitions": [
+        "BioSimError",
+        "BioSimClient"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/consequence_comparison.py",
+      "disposition": "archival-code",
+      "sha256": "2982157bb7a6bb0432da98232709152f7736892b7bfb4dee1a15475f028da147",
+      "definitions": [
+        "Cell",
+        "matrix",
+        "prompt",
+        "score_actions"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "dataclasses",
+        "itertools",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/containment.py",
+      "disposition": "archival-code",
+      "sha256": "607eedc61a9c479cc0de2e8119934dd38f7df3785280d2610dae60e879235ab3",
+      "definitions": [
+        "enabled",
+        "host_watches",
+        "host_workspace",
+        "inside_workspace",
+        "seat_name",
+        "current_seat",
+        "stage_watch_cli",
+        "stage_auth",
+        "watch_cli_home",
+        "plant_jar_dir",
+        "compose_env",
+        "_compose",
+        "plant_is_up",
+        "ensure_stack",
+        "exec_console",
+        "exec_watch",
+        "plant_launch",
+        "push_state",
+        "pull_state",
+        "invoke_agent",
+        "_seat_running",
+        "start_seat",
+        "_lock_cursor_plugins",
+        "harvest_seat",
+        "stop_seat"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.room_state",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/diegesis.py",
+      "disposition": "archival-code",
+      "sha256": "1891e010df10ef726b9162fb912419389b0880ed5f1ce94bfe986f168a832c1d",
+      "definitions": [
+        "station_home",
+        "watchstander_home",
+        "watch_id_for",
+        "operator_workspace",
+        "operator_state_dir",
+        "console_bin_path",
+        "user_console_bin",
+        "visible_eclss_command",
+        "console_source_path",
+        "station_ready",
+        "assert_station_ready",
+        "ensure_console_bin",
+        "panel_code_dir",
+        "panel_user",
+        "var_is_privileged",
+        "_sudo_panel",
+        "plant_watch_bin",
+        "write_launch",
+        "push_panel_state",
+        "pull_panel_state",
+        "write_console_marker",
+        "write_station_readme",
+        "write_mcp_json",
+        "permissions_payload",
+        "console_rule_text",
+        "seal_workspace",
+        "seed_watch_credentials",
+        "cursor_process_env",
+        "operator_error",
+        "_key_is_eval",
+        "scrub_operator_payload",
+        "visible_workspace_blobs",
+        "forbidden_hits",
+        "forbidden_path_hits"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.containment",
+        "biosim_operator.habitat",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/episode.py",
+      "disposition": "archival-code",
+      "sha256": "64ad875b8ad7418549784cafce385195dbfdc902ff6537c8fca6f11f7cfeedf0",
+      "definitions": [
+        "TurnLog",
+        "EpisodeResult",
+        "run_episode"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "client",
+        "dataclasses",
+        "datetime",
+        "habitat",
+        "operators",
+        "pathlib",
+        "score",
+        "typing",
+        "uplink"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/experiment_record.py",
+      "disposition": "archival-code",
+      "sha256": "1367a1cf33c4ec97b428a49ae8d213a7e61cda9c7e4d366d962c83d60a80bee1",
+      "definitions": [
+        "sha256_bytes",
+        "sha256_file",
+        "sha256_tree",
+        "copy_tree",
+        "write_json",
+        "_tick_length_from_xml",
+        "operator_surface_payload",
+        "write_plant_design_index",
+        "_patch_cell_plant_link",
+        "_patch_cell_identity_link",
+        "backfill_experiment_dir",
+        "iter_experiment_dirs",
+        "experiment_id",
+        "freeze_experiment"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.diegesis",
+        "biosim_operator.habitat",
+        "biosim_operator.identity_pack",
+        "biosim_operator.plant_design",
+        "datetime",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/grid.py",
+      "disposition": "archival-code",
+      "sha256": "3acc2944a5084745cc26ae79bce3a02f598d15e0b0aabc34d3e680fd0881d1af",
+      "definitions": [
+        "model_tag",
+        "Cell",
+        "list_scripts",
+        "_grade_of",
+        "normalize_grade",
+        "_p_tag",
+        "_scripts_in_order",
+        "build_cells",
+        "cell_dir",
+        "summarize_grid"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "dataclasses",
+        "pathlib",
+        "plant",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/grok_harness.py",
+      "disposition": "archival-code",
+      "sha256": "6f6afa10fc53ad2dcb439612b32493d5ce710f2b52d968134cf51cf12f9f544a",
+      "definitions": [
+        "resolve_grok_model",
+        "grok_bin",
+        "grok_home_for",
+        "_watch_slug",
+        "station_cwd_for",
+        "station_home_for",
+        "mirror_station_cwd",
+        "watchstander_override",
+        "_biosim_url",
+        "write_grok_mcp_config",
+        "write_attacker_grok_config",
+        "attacker_paths",
+        "install_attacker_home",
+        "_quoted_model_header",
+        "provider_a_opus_model_toml",
+        "isolated_custom_models_toml",
+        "_provider_proxy_base",
+        "_compute_host_ollama_base",
+        "_compute_host_oss_model_toml",
+        "_compute_host_ollama_model_toml",
+        "_provider_a_proxy_base",
+        "_provider_proxy_model_toml",
+        "_provider_a_model_toml",
+        "harvest_grok_compaction",
+        "seed_grok_auth",
+        "install_grok_home",
+        "grok_env",
+        "inspect_mcp_names",
+        "mcp_server_names",
+        "grok_cmd",
+        "run_grok",
+        "new_session_id"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.diegesis",
+        "biosim_operator.study_container",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/habitat.py",
+      "disposition": "archival-code",
+      "sha256": "2b5402a5dd72af63805dc2e4a1293aad553c3a0bc466c7c49e8bb55db348fb29",
+      "definitions": [
+        "_hourly_actuals",
+        "operator_equipment_type",
+        "_is_imv_module",
+        "_is_imv_air",
+        "is_imv_power",
+        "imv_power_command_cap",
+        "_setpoint_units",
+        "operator_clock",
+        "ticks_for_hours",
+        "_hours_from_ticks",
+        "_activity_name",
+        "operator_crew_name",
+        "operator_module_name",
+        "alias_operator_text",
+        "resolve_operator_module",
+        "_hide_equipment",
+        "operator_rack_payload",
+        "_berth_from_group",
+        "_timeline",
+        "CrewPersonView",
+        "StoreView",
+        "FlowView",
+        "HabitatView",
+        "_props",
+        "_num",
+        "parse_habitat"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "dataclasses",
+        "datetime",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/identity_pack.py",
+      "disposition": "archival-code",
+      "sha256": "4f7507274a4b1b75ce4c76066acaad86dc59b1b7a1db10e09f40c67c86e5d9bb",
+      "definitions": [
+        "sha256_bytes",
+        "sha256_file",
+        "sha256_tree",
+        "_load_catalog",
+        "catalog",
+        "pack_by_id",
+        "identify_soul_bytes",
+        "identify_soul_file",
+        "identify_dir",
+        "link_for_dir",
+        "write_catalog_copy"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/mcp_server.py",
+      "disposition": "archival-code",
+      "sha256": "390deac07263a35494542b4937b488220a5cd4d8a9ffd7ca01875aec37347809",
+      "definitions": [
+        "_flow_max",
+        "_command_cap",
+        "_advance_watch_tick",
+        "_env",
+        "_state_path",
+        "_client",
+        "_room_and_view",
+        "_transcript_path",
+        "_emit_tool",
+        "read_habitat",
+        "set_flow",
+        "read_sband",
+        "_advanced",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.diegesis",
+        "biosim_operator.habitat",
+        "biosim_operator.room_state",
+        "biosim_operator.run_record",
+        "biosim_operator.score",
+        "biosim_operator.uplink",
+        "mcp.server.fastmcp",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/operators.py",
+      "disposition": "archival-code",
+      "sha256": "4ec79bf7ceab7e7985bc35f6848fd99f45ef775c5704be37e4713c8cf044d5c8",
+      "definitions": [
+        "Action",
+        "Operator",
+        "DoNothingOperator",
+        "HostileOperator",
+        "HeuristicKeepAlive",
+        "OllamaKeepAlive",
+        "_parse_action_json",
+        "apply_actions"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "client",
+        "dataclasses",
+        "habitat",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/paths.py",
+      "disposition": "archival-code",
+      "sha256": "a7b6c3408f2c3121172ff0cb7d9b87bea971386bb0f79a9d496d4ea9931d76f1",
+      "definitions": [
+        "runs_root"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/plant.py",
+      "disposition": "archival-code",
+      "sha256": "75c162016a2613862481a9a6261aee2edc1fa2cea6c02f62321c30af4c194f6f",
+      "definitions": [
+        "current_stable_design_id",
+        "config_for"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.plant_design",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/plant_design.py",
+      "disposition": "archival-code",
+      "sha256": "be347f077893693f1a141ba994da31601a4e87cf14e24e79caf92a70983ab670",
+      "definitions": [
+        "_load_catalog",
+        "catalog",
+        "design_by_id",
+        "parse_volumes",
+        "parse_oxygen_injector_desired",
+        "parse_backup_vccr_power",
+        "parse_run_till_crew_death",
+        "parse_has_eva_imv",
+        "parse_has_pyrolizer",
+        "parse_fan_air_desired",
+        "parse_vccr_linear",
+        "parse_vccr_langmuir",
+        "parse_o2_store_volume",
+        "fingerprint",
+        "identify_xml",
+        "identify_file",
+        "link_for_file",
+        "index_configs"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/plant_dry_run.py",
+      "disposition": "archival-code",
+      "sha256": "0b72b0f7edf0a7a62e629f5953d5d71747a410409b6cff4502ca9d66e417a819",
+      "definitions": [
+        "DryRunFailed",
+        "DryRunReport",
+        "violations",
+        "with_relative_noise",
+        "run_untouched",
+        "run_stable_horizon",
+        "write_report"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.habitat",
+        "biosim_operator.plant",
+        "dataclasses",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/room_state.py",
+      "disposition": "archival-code",
+      "sha256": "598f91bcc7106a99cd9e1276e853e36ff3b065e27d10be11a63b2f864e46c08a",
+      "definitions": [
+        "RoomState",
+        "_embed_required_commission",
+        "packet_may_be_empty",
+        "load_room",
+        "panel_bytes_for",
+        "merge_panel_into_host",
+        "save_room"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.diegesis",
+        "biosim_operator.uplink",
+        "dataclasses",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/run_record.py",
+      "disposition": "archival-code",
+      "sha256": "f707b4f4fa73acf0f793bdc9df7872632f660a4fdaf42b18393337f50d9d9545",
+      "definitions": [
+        "maybe_json",
+        "utc_now",
+        "append_jsonl",
+        "load_jsonl",
+        "record_tool",
+        "tools_for_turn",
+        "compact_tools",
+        "iter_json_objects",
+        "_toolish",
+        "summarize_wake",
+        "write_json"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "datetime",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/score.py",
+      "disposition": "archival-code",
+      "sha256": "2ddc1cc0fb65c3956e176c107e8e3c2c368a7ff81294a685db18291abb4dad41",
+      "definitions": [
+        "EpisodeScore",
+        "score_habitat"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "dataclasses",
+        "habitat",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/server.py",
+      "disposition": "archival-code",
+      "sha256": "53a5eb5dc2ae46ef68261355b97109adbdff328f1fc3139ff81fc8bf89fedb3e",
+      "definitions": [
+        "_host_port_from_env",
+        "BioSimServer",
+        "allocate_free_port",
+        "_port_busy"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.containment",
+        "pathlib",
+        "urllib.parse"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/study.py",
+      "disposition": "archival-code",
+      "sha256": "382278d2f331a539840dbd45f8bccfd03a2de27c5e2e1bfef0fad688083fc0fb",
+      "definitions": [
+        "utc_now",
+        "sha256_file",
+        "sha256_bytes",
+        "script_bank_from_path",
+        "make_job_id",
+        "_job",
+        "build_full_manifest",
+        "_tranche_wanted",
+        "select_tranche",
+        "build_tranche_32",
+        "_hash_tree",
+        "_git_fingerprint",
+        "archive_runtime_sources",
+        "docker_image_identities",
+        "collect_fingerprints",
+        "flatten_fingerprints",
+        "freeze_manifest",
+        "load_frozen_manifest",
+        "_ephemeral_fingerprint_key",
+        "verify_frozen_manifest",
+        "verify_freeze_archive",
+        "default_run_dir",
+        "default_frozen_path",
+        "default_ledger_path",
+        "AttemptLedger",
+        "pid_alive",
+        "episode_dir",
+        "require_mock_namespace",
+        "require_real_namespace",
+        "RunnerLock",
+        "OwnedPlant",
+        "pause_reasons",
+        "write_pause_artifact",
+        "parent_launch_authorized",
+        "prior_subscription_attempts",
+        "native_route_preflight",
+        "parse_headless_usage",
+        "episode_argv",
+        "required_artifacts",
+        "validate_frozen_job",
+        "classify_attempt",
+        "_json_from_text",
+        "collect_attempt_usage",
+        "reconstruct_tranche_usage",
+        "persist_driver_stdio",
+        "run_mock_episode",
+        "launch_cli_episode",
+        "run_authorized_tranche",
+        "dry_run_report",
+        "_allocation_table",
+        "envelope_frames_byte_compare"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.containment",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "biosim_operator.study_container",
+        "biosim_operator.uplink",
+        "contextlib",
+        "datetime",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/study_container.py",
+      "disposition": "archival-code",
+      "sha256": "3f247092a6100ba2824e9a3ee3bf83c832c12596027673f7aba7b0e25b2d723b",
+      "definitions": [
+        "DockerBlocked",
+        "docker_access",
+        "require_docker",
+        "compose_text",
+        "dockerfile_text",
+        "validate_spec",
+        "_service_block",
+        "historical_host_exposure",
+        "remaining_limitations",
+        "study_container_argv_fragment",
+        "launch_or_block",
+        "docker_is_snap",
+        "no_new_privileges_usable",
+        "nnp_security_args",
+        "operator_security_argv",
+        "inspect_operator_argv",
+        "write_container_mcp_config",
+        "remap_grok_cmd_to_container",
+        "episode_paths",
+        "prepare_episode_dirs",
+        "iptables_plan",
+        "set_active",
+        "active",
+        "StudyContainment",
+        "ensure_operator_image",
+        "run_grok_in_container",
+        "run_adversary_probes_or_block",
+        "allocate_loopback_port"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.grok_harness",
+        "pathlib",
+        "recovery_diagnostics",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/src/biosim_operator/uplink.py",
+      "disposition": "archival-code",
+      "sha256": "1ca5a1fa12ae2c721095d14c731dba630e268dbe4f5ef8390a0b872ba45ccc5b",
+      "definitions": [
+        "UplinkSlot",
+        "useful_from_state",
+        "junk_slot",
+        "load_hijack_bank",
+        "grade_from_script_path",
+        "_first_rate",
+        "funded_keep_alive",
+        "this_watch_tail",
+        "compose_sband_frame",
+        "load_script_lines",
+        "UplinkBuffer"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "dataclasses",
+        "habitat",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/backfill_plant_designs.py",
+      "disposition": "archival-code",
+      "sha256": "f1083f7d63408443ab93f3966d79e1d523da761ba087f7f92e4fb07981210f6b",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.experiment_record",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/calibrate_consequence_pair.py",
+      "disposition": "archival-code",
+      "sha256": "b5d8fd1d56fc8aaf9eb162d1d1180a3e49180f4b2e05e1b00af10a2ba8aa5c94",
+      "definitions": [
+        "run"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.habitat",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/compute_host_ensure_models.py",
+      "disposition": "archival-code",
+      "sha256": "cd4502d214bb098ee596643d89a5e8c1a27478dd6f80f816812a40bc4a48babe",
+      "definitions": [
+        "_url",
+        "tags",
+        "wait_up",
+        "pull",
+        "smoke",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/docker-migration/cutover.py",
+      "disposition": "excluded-machine-administration",
+      "reason": "Host migration, privilege changes or private database operations; no experiment definitions."
+    },
+    {
+      "path": "runtime/scripts/docker-migration/cutover_apply.py",
+      "disposition": "excluded-machine-administration",
+      "reason": "Host migration, privilege changes or private database operations; no experiment definitions."
+    },
+    {
+      "path": "runtime/scripts/docker-migration/database-evidence.sql",
+      "disposition": "excluded-machine-administration",
+      "reason": "Host migration, privilege changes or private database operations; no experiment definitions."
+    },
+    {
+      "path": "runtime/scripts/docker-migration/disable-temporary-sudo.sh",
+      "disposition": "excluded-machine-administration",
+      "reason": "Host migration, privilege changes or private database operations; no experiment definitions."
+    },
+    {
+      "path": "runtime/scripts/docker-migration/enable-temporary-sudo.sh",
+      "disposition": "excluded-machine-administration",
+      "reason": "Host migration, privilege changes or private database operations; no experiment definitions."
+    },
+    {
+      "path": "runtime/scripts/docker-migration/migrate.py",
+      "disposition": "excluded-machine-administration",
+      "reason": "Host migration, privilege changes or private database operations; no experiment definitions."
+    },
+    {
+      "path": "runtime/scripts/docker-migration/privileged-cutover.sh",
+      "disposition": "excluded-machine-administration",
+      "reason": "Host migration, privilege changes or private database operations; no experiment definitions."
+    },
+    {
+      "path": "runtime/scripts/eclss_console.py",
+      "disposition": "archival-code",
+      "sha256": "c2cd73cb5caa16372cddb7bd5ee9aadb8d324b791e2673df0331b7fc2747c3a6",
+      "definitions": [
+        "_station",
+        "_watch_id",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/install-station.sh",
+      "disposition": "archival-code",
+      "sha256": "7338a4b0d849d8acd9c125292226646fe9e14e6d590061c25e4695870cd2ef00"
+    },
+    {
+      "path": "runtime/scripts/measure_plant.py",
+      "disposition": "archival-code",
+      "sha256": "833414b7e19c73897ddab4dd2a8bfeb32650fb8295a8c9879dcc14e759bf00d0",
+      "definitions": [
+        "apply_flows",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.habitat",
+        "biosim_operator.plant",
+        "biosim_operator.score",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/migrate_legacy_runs.py",
+      "disposition": "archival-code",
+      "sha256": "6dd9e82f9c616ac6ffc9664232fc6502a38bc906c959008447d52b8e705fe34a",
+      "definitions": [
+        "_load",
+        "migrate_night1",
+        "migrate_night_smoke",
+        "_decorate_cell",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.experiment_record",
+        "biosim_operator.paths",
+        "biosim_operator.plant",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/monitor_provider_b_host_a_overnight.py",
+      "disposition": "archival-code",
+      "sha256": "1e1887c3e7c3aeeb26ae6bfdd351676f444e323333e41854ad0bcf6850160d83",
+      "definitions": [
+        "pid_alive",
+        "check",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/plant-watch.py",
+      "disposition": "archival-code",
+      "sha256": "f0d6c75cdcd64dbac4abd0afb100e28177354843fc64c776e5fae325e41d409b",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/plant_dry_run.py",
+      "disposition": "archival-code",
+      "sha256": "7c524735b523cc83181e3cab45603723b3450d262769add714f21e2dd4841089",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.plant_dry_run",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/prepare_adapted_sband.py",
+      "disposition": "archival-code",
+      "sha256": "8e44a35619ebf39853661c348336a94427f3144993267894a70b06a5e9f15f49",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/prepare_dual_duty.py",
+      "disposition": "archival-code",
+      "sha256": "9ef72792fb0cffec66b41ee0cc8e0a8a71742200e0e027f83a5e34fbb3186680",
+      "definitions": [
+        "copy_pack",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.grok_harness",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/prepare_dual_prompt.py",
+      "disposition": "archival-code",
+      "sha256": "8add2006d259ae1595136ef0a50a1a14ebebad576fde7a0057e12df320f1acf5",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.grok_harness",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/prepare_dual_prompt_t0.py",
+      "disposition": "archival-code",
+      "sha256": "327a00f04ef95ab12e367a7eb0b30591499d75db8b435e2e92c61a59b2ef3bf4",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.grok_harness",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/prepare_dual_prompt_unlabeled.py",
+      "disposition": "archival-code",
+      "sha256": "9320f292397f8b0bf49a034764d511651e25c2d4210a4bec414488f560503968",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.grok_harness",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/prepare_sband_comparison.py",
+      "disposition": "archival-code",
+      "sha256": "555e83ee8b8d9f56338d61830cae27317670f9be6cc3ec9efa47f4c7604d7875",
+      "definitions": [
+        "prepare"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/prepare_system_only.py",
+      "disposition": "archival-code",
+      "sha256": "0c252ff7df2b6cb1ae9963b5e5f3da80da341d8bb05b7d9ae6d5aa99b5544ac1",
+      "definitions": [],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.grok_harness",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_cursor_episode.py",
+      "disposition": "archival-code",
+      "sha256": "f60bb45671b45d3009e9440e79d5a3b2516fdf90567c2d21e9304e28661db4a6",
+      "definitions": [],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_dual_duty.py",
+      "disposition": "archival-code",
+      "sha256": "bc0aaf6e04daf512eb13b347075adb7ef7f50b4da32eea2a4e65f379b03ef832",
+      "definitions": [
+        "original_script",
+        "job_for",
+        "execute",
+        "lane",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_dual_prompt.py",
+      "disposition": "archival-code",
+      "sha256": "81b455ecf9a2a3630622667682e85bfe1b4c83aaefedc1ef631b5222d44f41b0",
+      "definitions": [
+        "original_script",
+        "job_for",
+        "execute",
+        "lane",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_grok_episode.py",
+      "disposition": "archival-code",
+      "sha256": "3d9288165a7e69cfd30c3dbe0fd7cfba24b30ab0961ad43b9aa525c24dddfcc1",
+      "definitions": [],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_hermes_episode.py",
+      "disposition": "archival-code",
+      "sha256": "9ed706474b39c264c2c5c5ef21a9e545bb1c1e8e3a52d547d14c547320ca6f54",
+      "definitions": [],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_keepalive.py",
+      "disposition": "archival-code",
+      "sha256": "b1d413bc39d38664446165d7e41a5e64b0c538960cab9b473182b65aa567360e",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.episode",
+        "biosim_operator.operators",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_native_grok_luna_followup.py",
+      "disposition": "archival-code",
+      "sha256": "edfd76d9cb7a5609a2a77221c4619f6534c054603651f2bcf5984cb5d98939f5",
+      "definitions": [
+        "grok_job",
+        "luna_job",
+        "execute",
+        "lane",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_overnight_grid.py",
+      "disposition": "archival-code",
+      "sha256": "67dafecf6566bfbe36512a71190eb080777e8a53d4b70d02754643c1ef587adf",
+      "definitions": [
+        "_argv_for",
+        "_write_summary",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.client",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.grok_harness",
+        "biosim_operator.paths",
+        "biosim_operator.plant_dry_run",
+        "biosim_operator.server",
+        "datetime",
+        "pathlib"
+      ],
+      "adaptive_writer": true
+    },
+    {
+      "path": "runtime/scripts/run_sband_screen.py",
+      "disposition": "archival-code",
+      "sha256": "324009e16a25067d95102128d679efa8073367f162c9823eb1b8f78181a4093c",
+      "definitions": [
+        "make_job",
+        "lane",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_provider_b_host_a_overnight.py",
+      "disposition": "archival-code",
+      "sha256": "01325d20c1672c866b35b09167a39e27960ac55efe00a6f1f79b574bc7583fa7",
+      "definitions": [
+        "digest",
+        "atomic_json",
+        "locked",
+        "make_job",
+        "all_jobs",
+        "image_id",
+        "freeze",
+        "verify",
+        "ledger",
+        "persist",
+        "active_prior_model",
+        "qualification_rows",
+        "qualification_passed",
+        "reserve_global",
+        "release_global",
+        "_pid_alive",
+        "inspect",
+        "run_model",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_provider_b_host_a_probe.py",
+      "disposition": "archival-code",
+      "sha256": "48da1438805d07f17875ec8552e0383bbc698c3136327dbaff3987120dede651",
+      "definitions": [
+        "digest",
+        "atomic_json",
+        "locked",
+        "job",
+        "jobs",
+        "frozen_files",
+        "image_id",
+        "freeze",
+        "verify",
+        "inspect",
+        "run",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "typing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_terra_comparison_smoke.py",
+      "disposition": "archival-code",
+      "sha256": "d6e688cb2f732efd09bde211a37098be22cabbbcc8a9b3554100ba5a0b28ac45",
+      "definitions": [
+        "save",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_terra_sband_pair.py",
+      "disposition": "archival-code",
+      "sha256": "756e2495349ca985b9766713aaeccefca54d363dffe8b20ccc31b1803a002de4",
+      "definitions": [
+        "job_for",
+        "execute",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_v23_wide.py",
+      "disposition": "archival-code",
+      "sha256": "e2c91bca453687e5a70fda2c5e739764940b752c7cabe6bff0aae1d4c715f308",
+      "definitions": [
+        "_script",
+        "build_wide_cells",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "datetime",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_v24_discovery_t12.py",
+      "disposition": "archival-code",
+      "sha256": "15ff919bd49be3e187e8385d5134bbc145ed65d43574aaf5be8ab74aa0e04f32",
+      "definitions": [
+        "_script",
+        "build_discovery_t12_cells",
+        "_write_compaction_tally",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_v25_gpt_knownkill.py",
+      "disposition": "archival-code",
+      "sha256": "c3bc2dd862ed9d15a78cdb066a9c0bf83adc4081400999178e8ab0b6b17b403d",
+      "definitions": [
+        "_script",
+        "_tag",
+        "_add",
+        "build_v25_cells",
+        "_caps_for",
+        "_write_compaction_tally",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "collections",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_v26_luna_rectangle.py",
+      "disposition": "archival-code",
+      "sha256": "db96273a66d14ee67e4f041385c6b514f8635ef3bb9aa356e5d75b34af44eae9",
+      "definitions": [
+        "_script",
+        "build_v26_cells",
+        "_write_compaction_tally",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_v27_entropy_hold_t2.py",
+      "disposition": "archival-code",
+      "sha256": "0902432a285f3c14607522510e7c12859b7f389c381eb677f1811deede0b2bad",
+      "definitions": [
+        "_script",
+        "build_v27_cells",
+        "_write_compaction_tally",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_v28_miscal_t2.py",
+      "disposition": "archival-code",
+      "sha256": "15cb852d3da667dafbb78e3628c32931b9eb62d95418ef17f023f50783c54d36",
+      "definitions": [
+        "_script",
+        "build_v28_cells",
+        "_write_compaction_tally",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_v30_oss_t0_knownkill.py",
+      "disposition": "archival-code",
+      "sha256": "029d6a65a466404506549ef3510127c2c38ddb629dfb16f8b287b4e3cbf00cf4",
+      "definitions": [
+        "_script",
+        "build_v30_cells",
+        "_write_compaction_tally",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_v32_writer_screen.py",
+      "disposition": "archival-code",
+      "sha256": "125fc10b88fadb526831817f06fc85f45dab3b4d8b5d5bcc2d3c9e5009b6d614",
+      "definitions": [
+        "build_v32",
+        "_write_compaction_tally",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": true
+    },
+    {
+      "path": "runtime/scripts/run_v33_writer_screen.py",
+      "disposition": "archival-code",
+      "sha256": "c605b6e65a0e20c284637e7e834103b463397e0df3e5da9d8dcbd8e898dcd095",
+      "definitions": [
+        "build_v33",
+        "_write_compaction_tally",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": true
+    },
+    {
+      "path": "runtime/scripts/run_v34_writer_trust.py",
+      "disposition": "archival-code",
+      "sha256": "81d205541627c90cc7197d6d68fbd24045efc15ebd8b926ed7275ba57b70c9d1",
+      "definitions": [
+        "build_v34",
+        "_write_compaction_tally",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": true
+    },
+    {
+      "path": "runtime/scripts/run_v35_compute_host_t0_knownkill.py",
+      "disposition": "archival-code",
+      "sha256": "4653c29788b8193e940d866e425e33b858a734ce663365f70d2385611959d09e",
+      "definitions": [
+        "_script",
+        "build_v35_cells",
+        "_write_compaction_tally",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_v36_grok_victim_t0.py",
+      "disposition": "archival-code",
+      "sha256": "4e33c1d21e32f794046b8fac3eab5d025c57ea92cd78ac73c5d0ed2666b8f85c",
+      "definitions": [
+        "build_v36",
+        "_write_compaction_tally",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_v38_llama_prescripted.py",
+      "disposition": "archival-code",
+      "sha256": "88f19b0d6a07f04653c8e489661aa8aaac981628f9a284447ca18c5eb53a3beb",
+      "definitions": [
+        "_script",
+        "build_v38",
+        "_write_compaction_tally",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/run_v39_stage_b_t0.py",
+      "disposition": "archival-code",
+      "sha256": "0332795054acf6cb3ea9e4aaafcd7f689909dabffc72e94ee1fb69c96aa677f0",
+      "definitions": [
+        "_script",
+        "_hijack",
+        "_probe_none",
+        "build_v39",
+        "model_live_cap",
+        "_write_compaction_tally",
+        "_dump_results",
+        "_cell_path",
+        "_outcome_ok",
+        "classify_cell",
+        "_quarantine",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "collections",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/smoke.py",
+      "disposition": "archival-code",
+      "sha256": "59906cd9b6dd75409c22d0686be42d368c36b4f2db8976d95ab3a06e4a6f374f",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.habitat",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/smoke_docker.sh",
+      "disposition": "archival-code",
+      "sha256": "24113a29180d0db7756ba4f3b3537bc162355c24702fc31f6aa021b0f85b27d3"
+    },
+    {
+      "path": "runtime/scripts/study/connect_proxy.py",
+      "disposition": "archival-code",
+      "sha256": "a4162c42a09fd342daf239ef57f05582a55ad13e2e5317b762280d7b1ccec291",
+      "definitions": [
+        "public_addresses",
+        "Handler",
+        "Server"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "http.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/eclss_broker.py",
+      "disposition": "archival-code",
+      "sha256": "3c50bd37617d8d3a7dd548964d4d9ff5aec46f095c8eea7f3c0be2dc3d19898a",
+      "definitions": [
+        "_tools",
+        "_normalize_args",
+        "handle",
+        "_serve",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/model_proxy.py",
+      "disposition": "archival-code",
+      "sha256": "10839b258a1a81574a8c8bc452c8382f68093b557536dfddcab48914ff8ee132",
+      "definitions": [
+        "_auth_present",
+        "Handler",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "http.server",
+        "pathlib",
+        "urllib.parse"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/recovery_diagnostics.py",
+      "disposition": "archival-code",
+      "sha256": "7347410dc98d847edd5b6096b8bf9fdc1ca67a249ebdd0212da9bb3baf091cc3",
+      "definitions": [
+        "failure_reason",
+        "run_owned_client"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib",
+        "run_next_batch"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/route_broker.py",
+      "disposition": "archival-code",
+      "sha256": "080c317f89b690adaae00de691992350ece75b69a9843ed85905a58543ba21fa",
+      "definitions": [
+        "diagnostic",
+        "record_usage",
+        "record_stream_error",
+        "ensure_choice_deltas",
+        "SSEInspector",
+        "reject_json_constant",
+        "retry_after_seconds",
+        "Handler",
+        "Server"
+      ],
+      "imports": [
+        "archive_gate",
+        "email.utils",
+        "http.server",
+        "pathlib",
+        "sonnet_pacing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/run_first_batch.py",
+      "disposition": "archival-code",
+      "sha256": "2b5110cc688303ef6e5857c3110a7521c9327f04c4d2eb4b34534c998755eae6",
+      "definitions": [
+        "save",
+        "select_jobs",
+        "verify",
+        "execute",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.paths",
+        "biosim_operator.study",
+        "collections",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/run_next_batch.py",
+      "disposition": "archival-code",
+      "sha256": "58694155817966d17734feba28ff998735d985ecf38b709e1a73660bdeab3acc",
+      "definitions": [
+        "digest",
+        "select_jobs",
+        "read_json",
+        "incomplete_json",
+        "read_active_json",
+        "read_events",
+        "inspect_artifacts",
+        "completed_ids",
+        "archive_inputs",
+        "freeze",
+        "verify",
+        "attempt_env",
+        "execute",
+        "check_ledger",
+        "controls_passed",
+        "amend",
+        "admit",
+        "run_model",
+        "_run_model",
+        "exclusive",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "biosim_operator.paths",
+        "collections",
+        "pathlib",
+        "run_first_batch",
+        "sonnet_pacing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/run_next_recovery.py",
+      "disposition": "archival-code",
+      "sha256": "71f8793eb4c28525cdff8baa813bc04ccb69e2b6aa8108ec0074753655144bfc",
+      "definitions": [
+        "save",
+        "predecessor_locks",
+        "tree_hashes",
+        "validate_success",
+        "prepare_plan",
+        "freeze",
+        "verify",
+        "check_ledger",
+        "admit",
+        "runnable",
+        "execute",
+        "run_model",
+        "amend_quota",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib",
+        "recovery_diagnostics"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/run_preflight.py",
+      "disposition": "archival-code",
+      "sha256": "cd97733ed914188b975d1c5a01633236861a8eda63087179f05e28f7cf37c51b",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.study",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/run_route_smokes.py",
+      "disposition": "archival-code",
+      "sha256": "eb8e3bf78c6fc241203f10616f2fc9fa08d815230e024ee4c4197bfffff6f113",
+      "definitions": [
+        "write",
+        "execute",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.paths",
+        "biosim_operator.study",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/run_tranche.py",
+      "disposition": "archival-code",
+      "sha256": "a23ed7f6061d41f3c4544bae5ba92ec74d5758d3a6998998da27307bc77b8476",
+      "definitions": [
+        "main",
+        "freeze_sidecar"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.study",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/sonnet_pacing.py",
+      "disposition": "archival-code",
+      "sha256": "1c61f9e051e96c382ec3bb09fa00bcb5a58ae4758cda7f46b665b603e9f9f156",
+      "definitions": [
+        "validate_spacing",
+        "reserve_start"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/validate_native_subscription.py",
+      "disposition": "archival-code",
+      "sha256": "1aaa55e88cfce353f689ef46b6c834f318addc8e24086b479ca937626e1e1859",
+      "definitions": [
+        "persist",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.grok_harness",
+        "biosim_operator.paths",
+        "biosim_operator.room_state",
+        "biosim_operator.server",
+        "biosim_operator.study_container",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/study/verify_container_runtime.py",
+      "disposition": "archival-code",
+      "sha256": "e1cd0e7ec68801b3b6bba97506a6f22da78221c45838bb6b98bb0012e1595480",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.paths",
+        "biosim_operator.room_state",
+        "biosim_operator.server",
+        "biosim_operator.study_container",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/scripts/up-station.sh",
+      "disposition": "archival-code",
+      "sha256": "d1d8a2d0ea602cc66042b067b187a5c8aa5617a924b9ee8f3b27d0fc84c3e3ef"
+    },
+    {
+      "path": "runtime/scripts/watch_provider_b_host_a_overnight.sh",
+      "disposition": "archival-code",
+      "sha256": "7154ebfb34517b31cd8ec5b880eac4558ab832a6ae404131d5a5c1aa505b826b"
+    },
+    {
+      "path": "runtime/tests/fake_grok.py",
+      "disposition": "archival-code",
+      "sha256": "ce0f339f9d6b0c50274b90f06c62c9ac649db7378b18c0483887b0b34c345c22",
+      "definitions": [
+        "_mcp_env_from_grok_home",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.mcp_server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/fakes/dispatcher.py",
+      "disposition": "archival-code",
+      "sha256": "c39b73c4d3bbbc37127109f6197a241762f26b3c6d1b93fd6ab13e456038f19f",
+      "definitions": [
+        "load",
+        "save",
+        "rec",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/fixtures/next46_baseline/scripts/study/route_broker.py",
+      "disposition": "archival-code",
+      "sha256": "84ab0b45787834b1f0f304b7b53a7a90dfb5232f4ed1fde8136d642aa51852c8",
+      "definitions": [
+        "diagnostic",
+        "record_usage",
+        "record_stream_error",
+        "SSEInspector",
+        "retry_after_seconds",
+        "Handler",
+        "Server"
+      ],
+      "imports": [
+        "archive_gate",
+        "email.utils",
+        "http.server",
+        "pathlib",
+        "sonnet_pacing"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/hung_operator.py",
+      "disposition": "archival-code",
+      "sha256": "17dd2c91fbf1a15993d5a9593928204693d5f4b524f08922aaeb687db666bff5",
+      "definitions": [],
+      "imports": [
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_attacker.py",
+      "disposition": "archival-code",
+      "sha256": "eb0241aaf681720d486f4a3f7e05d8068204c8f6dffd658998aa34f37ef29fbc",
+      "definitions": [
+        "test_quiet_frames_may_have_empty_packet",
+        "test_compact_board_reads_cabin_and_named_racks",
+        "test_needles_reject_eval_words",
+        "test_v33_briefs_are_needle_clean_and_self_explanatory",
+        "test_attacker_readme_does_not_forbid_naming_setpoints",
+        "test_scrub_and_spoken_json"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.attacker",
+        "biosim_operator.grok_harness",
+        "biosim_operator.room_state",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_benign.py",
+      "disposition": "archival-code",
+      "sha256": "e28db53f0bb6b082d0454b1755de0b1e4d5bed531710369a9f2cf982f70ca720",
+      "definitions": [
+        "_view",
+        "test_benign_script_is_observation_and_needle_clean",
+        "test_benign_scorer_recovery_vs_death",
+        "test_live_reversible_fan_check_is_nonlethal",
+        "test_tranche_benign_is_not_probe_none"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.benign",
+        "biosim_operator.client",
+        "biosim_operator.diegesis",
+        "biosim_operator.habitat",
+        "biosim_operator.plant",
+        "biosim_operator.server",
+        "biosim_operator.study",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_broker_parsing_review.py",
+      "disposition": "archival-code",
+      "sha256": "71cf3b7e68b24995e48e3d75ff56311db4f0006cff7b5dd7035382453182e4e9",
+      "definitions": [
+        "test_valid_json_sse_framing_not_overconstrained",
+        "test_sse_json_requirement_is_chat_route_specific",
+        "test_nonstream_response_passthrough_characterization"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_cli_episode.py",
+      "disposition": "archival-code",
+      "sha256": "56f1a41795d9ff188282f174a03eb23aa0d287e089ddbd417be6f5733f091770",
+      "definitions": [
+        "test_cursor_model_aliases_point_at_listed_grok_46",
+        "test_grok_model_aliases_for_provider_a_and_provider_a",
+        "test_cursor_model_aliases_cover_the_five_model_set",
+        "test_extract_session_id_from_cursor_json",
+        "test_mcp_list_allowlist_is_eclss_only",
+        "test_extract_session_id_from_hermes_text",
+        "test_grok_override_bans_eval_words",
+        "test_live_advanced_pack_is_legal_grok_override",
+        "test_grok_inspect_names_skip_disabled_compat_servers",
+        "test_grok_station_cwd_is_outside_the_experiment_tree",
+        "test_grok_home_config_includes_provider_a_opus_without_secret",
+        "test_harvest_grok_compaction_copies_signals",
+        "test_grok_home_config_hides_project_skills",
+        "test_grok_cmd_overrides_system_prompt_and_isolates_home",
+        "test_grok_cli_parses_empty_tools_and_sandbox_without_prompt",
+        "test_grid_defaults_to_cursor_and_grok_is_opt_in",
+        "test_cursor_cmd_is_headless_resume_on_isolated_workspace",
+        "test_hermes_cmd_still_caps_tool_turns",
+        "test_write_cursor_mcp_stays_project_local",
+        "test_seed_cursor_permissions_writes_shell_deny",
+        "test_start_and_turn_prompts_always_ask_for_sband",
+        "test_snapshot_identity_writes_pack_and_prompts",
+        "test_biosim_mcp_missing_detects_cursor_plugin_fallback",
+        "test_assert_cursor_eclss_rejects_connection_failed"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.diegesis",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grok_harness",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_connect_proxy.py",
+      "disposition": "archival-code",
+      "sha256": "e0952d5b46fab443f0a3a1843b8e570defe69dc66dd4f4463ca5a5233bcf6ef5",
+      "definitions": [
+        "test_reject_private_dns",
+        "test_reject_mixed_dns",
+        "test_only_explicit_hosts"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_consequence_comparison.py",
+      "disposition": "archival-code",
+      "sha256": "885e3097f624436c9c6d549c581d77f031bd707c346cb0f3cef7e1ead0b7b31d",
+      "definitions": [
+        "test_matrix_counts_and_unique_ids",
+        "event",
+        "test_cut_restore_recut_visible",
+        "test_partial_and_failed_actions_are_not_complete",
+        "test_exposure_required",
+        "test_time_order_checked",
+        "test_narratives_acknowledge_occupants"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.consequence_comparison",
+        "collections",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_containment.py",
+      "disposition": "archival-code",
+      "sha256": "3a1ad3b0c8b69a0c384b0f9b1ea0d23fa510ef6394de12035e2bd31521988caf",
+      "definitions": [
+        "test_ensure_stack_skips_recreate_when_plant_is_up",
+        "test_docker_off_by_default",
+        "test_docker_enabled_from_env",
+        "test_plant_urls_are_station_shaped",
+        "test_inside_workspace_is_the_seating_not_a_sibling_id",
+        "test_compose_services_are_plant_and_console",
+        "test_station_dockerfile_does_not_copy_eval_tree",
+        "test_cursor_home_under_docker_bind",
+        "test_mcp_command_is_public_wrapper_when_docker",
+        "test_cursor_cmd_workspace_is_inside_path_when_docker"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "biosim_operator.cli_episode",
+        "biosim_operator.containment",
+        "biosim_operator.diegesis",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_cutover_production.py",
+      "disposition": "archival-code",
+      "sha256": "ea493fe685505eddf1592fbc4f923ed3f6e5ff75d0541d3dd237a92fb8fa3ad6",
+      "definitions": [
+        "_setup",
+        "_calls",
+        "_first_idx",
+        "test_root_guard_before_any_docker",
+        "test_missing_password_before_stop",
+        "test_download_failure_leaves_snap_up",
+        "test_install_failure_restores_snap",
+        "test_nnp_failure_restores_snap",
+        "test_happy_path_queries_new_db_and_download_before_stop",
+        "test_idle_sessions_without_attest_refuse_before_stop",
+        "test_unknown_exception_still_rolls_back",
+        "test_load_pg_env_requires_password"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "cutover",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_cutover_transaction.py",
+      "disposition": "archival-code",
+      "sha256": "5221e0c7e4befc7d589dc7530044a0d41e749412b8ad517ddb4fb8d251bee491",
+      "definitions": [
+        "test_dump_complete_requires_trailer",
+        "test_compare_allows_extra_postgres_role"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "cutover",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_diegesis.py",
+      "disposition": "archival-code",
+      "sha256": "9ed4f4273f728eba573a6feb447505f41d112ed7f7202df97d6450baac0c2300",
+      "definitions": [
+        "test_wakes_and_rules_have_no_eval_words",
+        "test_identity_pack_has_no_eval_words",
+        "test_watch_ids_are_opaque_and_stable",
+        "test_production_paths_are_station_shaped_not_a_laptop",
+        "test_cursor_workspace_is_outside_the_experiment_tree",
+        "test_default_run_also_leaves_the_repo",
+        "test_ensure_console_bin_does_not_rewrite_a_read_only_plant",
+        "test_mcp_json_has_no_eval_strings",
+        "test_installed_workspace_looks_like_a_station",
+        "test_two_runs_do_not_share_launch_or_mcp",
+        "test_operator_error_hides_rest_paths",
+        "test_operator_dict_and_scrub_drop_eval_keys"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.diegesis",
+        "biosim_operator.habitat",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_docker_migration.py",
+      "disposition": "archival-code",
+      "sha256": "ece66631c574440738d51ecbf89bf1005c30a15ce56609d2e25f99e36e41d849",
+      "definitions": [
+        "_load",
+        "test_redact_env_and_dict",
+        "test_cutover_without_apply_does_not_mutate",
+        "test_cutover_apply_without_root_exits",
+        "test_privileged_script_refuses_without_apply",
+        "test_pinned_version_is_29_line"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_dual_duty.py",
+      "disposition": "archival-code",
+      "sha256": "7dda67b160cefd4e4a80d85a8e82e2e4e002ba608edc93ab4e23cbe49364579e",
+      "definitions": [
+        "test_watch_prompts_match_original_flow",
+        "test_life_pack_is_survival_duty",
+        "test_sband_pack_swaps_standing_duty_only",
+        "test_tool_doc_is_descriptive_one_pull",
+        "test_matrix_and_scripts"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.grok_harness",
+        "biosim_operator.uplink",
+        "pathlib",
+        "run_dual_duty"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_dual_prompt.py",
+      "disposition": "archival-code",
+      "sha256": "c12d01619ea0ad7f03fddbd804b81eaa1a1ead38fc69c7c6d6647cb1c2584ebb",
+      "definitions": [
+        "test_dual_prompt_has_both_duties",
+        "test_watch_prompts_do_not_nag",
+        "test_procedure_packets"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.grok_harness",
+        "biosim_operator.uplink",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_eclss_broker.py",
+      "disposition": "archival-code",
+      "sha256": "536f040a8c8c6986a1ca3d68d60d2d9e9d73eaf392838cdea616dfb740082e41",
+      "definitions": [
+        "_load",
+        "test_set_flow_value_alias_does_not_call_bare_fn",
+        "test_set_flow_typeerror_does_not_raise",
+        "test_denied_tool_does_not_raise"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_experiment_record.py",
+      "disposition": "archival-code",
+      "sha256": "79b1120e09aa4557dce10bb73030f4467881f1be0fb94f7e3fedc529afe08266",
+      "definitions": [
+        "test_experiment_id_includes_pack_operator_model",
+        "test_freeze_experiment_copies_identity_and_configs",
+        "test_snapshot_cell_copies_plant_and_card",
+        "test_backfill_links_historical_nasa_xml_without_rewriting_it",
+        "test_backfill_links_historical_soul_without_rewriting_it"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.experiment_record",
+        "biosim_operator.plant",
+        "datetime",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_first_batch.py",
+      "disposition": "archival-code",
+      "sha256": "f5b5023ea8cd9a57a4c551106da9720e7cf2ea0fee8d8e62f41bff0974ccefb7",
+      "definitions": [
+        "test_batch_covers_full_design",
+        "test_station_preparation_accepts_existing_destination",
+        "test_cli_does_not_shadow_atexit",
+        "test_caps_and_order_are_fixed"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "biosim_operator.cli_episode",
+        "collections",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_grid.py",
+      "disposition": "archival-code",
+      "sha256": "5c72dffe67a332ec8e9cadd8c1ca10907cfa956d428a036aa4caf6a17a0f27be",
+      "definitions": [
+        "test_overnight_argv_nests_run_id",
+        "test_v2_bank_still_has_21_scripts",
+        "test_v3_bank_is_replicas_arcs",
+        "test_v9_bank_is_five_attractor_stories",
+        "test_v7_bank_is_four_slow_burn_stories",
+        "test_build_cells_stable_only_v7_is_four_cells",
+        "test_build_cells_five_models_times_three_stories_is_fifteen",
+        "test_unknown_strategy_raises",
+        "test_argv_uses_per_cell_model",
+        "test_build_cells_can_keep_grade7_p100_and_junk",
+        "test_grid_is_21_scripts_times_3p_times_2_plus_2_junk",
+        "test_summarize_wake_keeps_result_and_objects",
+        "test_summarize_grid_reads_outcome",
+        "test_summarize_grid_reads_compaction"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.experiment_record",
+        "biosim_operator.grid",
+        "biosim_operator.run_record",
+        "biosim_operator.uplink",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_habitat.py",
+      "disposition": "archival-code",
+      "sha256": "cac02ad7adddc96a15ea7051563cd18c61559aaf578d60dafea06230675d94ef",
+      "definitions": [
+        "_snap",
+        "test_alive_from_activity_name",
+        "test_dead_from_activity_name",
+        "test_all_dead_is_false_while_anyone_lives",
+        "test_advanced_dict_lists_compartments",
+        "test_operator_board_uses_assembly_names_not_biosim_classes",
+        "test_opt_in_class_names_do_not_leak_on_the_board",
+        "test_stock_biosim_roster_is_aliased_on_the_board",
+        "test_operator_clock_maps_ticks_onto_a_wall_date",
+        "test_crew_timeline_drops_born_and_renames_exercise",
+        "test_activity_hours_scale_with_tick_length",
+        "test_operator_rack_payload_aliases_roster_and_drops_crewpeople_key",
+        "test_operator_rack_payload_reports_activity_in_hours_not_ticks",
+        "test_advanced_board_scales_actuals_hourly_and_hides_imv_air",
+        "test_operator_rack_payload_hides_imv_air_and_scales_mass_actuals",
+        "test_o2_store_not_confused_with_co2",
+        "test_uplink_useful_mentions_true_co2",
+        "test_hijack_probe_uses_bank_not_kind_label"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.habitat",
+        "biosim_operator.score",
+        "biosim_operator.uplink",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_identity_pack.py",
+      "disposition": "archival-code",
+      "sha256": "17c13f52c3606d3996ddc86eea8358643df144768bef420805382034b059a45e",
+      "definitions": [
+        "test_t1_peer_and_t2_unverified_are_registered",
+        "test_live_soul_is_fs1_layout_v1",
+        "test_v6_frozen_soul_is_commission_not_fs1",
+        "test_v5_and_v3_share_keep_alive_soul",
+        "test_night1_soul_is_ignore_radio",
+        "test_unknown_soul_gets_content_addressed_id",
+        "test_snapshot_honours_identity_dir",
+        "test_link_for_dir_includes_tree_hash"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.identity_pack",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_mcp_log.py",
+      "disposition": "archival-code",
+      "sha256": "0c9e36c1d3e63ef36b004ce4dfbb0785480905187b14977a76bb9883b43302a6",
+      "definitions": [
+        "test_panel_state_round_trips_ticks_left",
+        "test_emit_tool_writes_named_call",
+        "test_emit_tool_never_raises_without_path",
+        "test_read_sband_second_pull_same_watch_repeats",
+        "test_set_flow_rejects_internal_biosim_module_name",
+        "test_set_flow_clamps_to_max_and_uses_display_name",
+        "test_set_flow_clamps_imv_damper_to_one",
+        "test_set_flow_completes_one_tick_from_the_watch_budget",
+        "test_panel_call_still_ticks_after_watch_budget_so_clock_cannot_freeze",
+        "test_two_habitat_reads_advance_the_plant_clock"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "biosim_operator.habitat",
+        "biosim_operator.mcp_server",
+        "biosim_operator.room_state",
+        "biosim_operator.run_record",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_next_batch.py",
+      "disposition": "archival-code",
+      "sha256": "6cebe081894b23bb17ed098be22386b5caee1709938fb00bb9018a4745a9a5e2",
+      "definitions": [
+        "manifest",
+        "artifacts",
+        "test_selection_exact_repeats_and_exclusions",
+        "test_timeout_environment_forwarding",
+        "test_diagnostics_only_for_broker_models",
+        "test_mocked_native_episode_without_route_diagnostics",
+        "test_terminal_and_missing_artifacts",
+        "test_local_gate_and_pause_do_not_affect_other_model",
+        "test_restart_refuses_running_or_duplicate",
+        "test_single_explicit_replacement_retains_failure",
+        "test_exclusive_lock",
+        "test_quota_detection_retry_after",
+        "test_freeze_verify_and_archive_tamper",
+        "test_launch_helper_preserves_config_and_unique_runtime",
+        "test_model_route_inherits_pacing_without_container_secret",
+        "test_completed_restart_does_not_admit_again",
+        "test_mutated_failed_artifacts_block_replacement",
+        "test_seeded_phase_order_is_reproducible_and_not_lexicographic",
+        "test_active_trailing_json_only",
+        "test_active_malformed_committed_json_fails",
+        "test_amendment_uses_model_lock_while_global_controller_held",
+        "test_active_partial_writer_finishes_without_false_pause",
+        "test_run_model_rejects_unfinished_write_at_completion",
+        "test_completed_trailing_diagnostic_fails_strictly",
+        "test_stream_error_overrides_successful_artifacts"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "biosim_operator.server",
+        "pathlib",
+        "run_first_batch",
+        "types"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_next_recovery.py",
+      "disposition": "archival-code",
+      "sha256": "528e732efadb229b43a0f4fa603958738323209a4fdf84926ee940213ae8d26b",
+      "definitions": [
+        "manifest",
+        "artifacts",
+        "success",
+        "test_gate_fanout_one_then_controls_then_attacks",
+        "test_restart_completed_no_duplicate_calls",
+        "test_running_row_blocks_restart",
+        "test_lineage_and_duplicate_caps",
+        "test_one_quota_replacement_after_technical",
+        "test_bad_success_rejected",
+        "test_partial_and_classified_logs",
+        "test_model_local_pause",
+        "test_failure_notification_before_drain",
+        "test_atomic_records",
+        "test_freeze_requires_confirmation_before_writes",
+        "test_predecessor_locks_are_readonly_and_exclusive",
+        "predecessor_fixture",
+        "test_recovery_filters_only_valid_successes_and_retains_usage",
+        "test_predecessor_rejection",
+        "test_diagnostics_absent_during_startup_is_not_fatal",
+        "test_active_future_partial_log_becomes_terminal_failure",
+        "test_owned_child_exit_preserves_stdio",
+        "test_owned_client_stops_only_exact_container"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib",
+        "types"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_operator_error_stop.py",
+      "disposition": "archival-code",
+      "sha256": "8a671a91bad59859fe65b51ecb74d1808e1dee253a3a724a08d8018c7f319b20",
+      "definitions": [
+        "test_nonzero_operator_exit_stops_without_advancing",
+        "test_max_turn_exit_can_recover_watch_and_continue",
+        "test_success_exit_with_route_error_is_incomplete_without_advance"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_owned_client_docker.py",
+      "disposition": "archival-code",
+      "sha256": "a1a4b6431223bf40b840e51601be6b983af9b8c348b65848f9571f0a06d1d0c4",
+      "definitions": [
+        "docker",
+        "running",
+        "test_owned_client_real_docker_cleanup"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_paths.py",
+      "disposition": "archival-code",
+      "sha256": "a0e5fb00ec76343811bc07832b2b534803ea7f6ba46b908e106420a575d30fb8",
+      "definitions": [
+        "test_default_runs_root_is_repo_runs",
+        "test_absolute_override",
+        "test_relative_override",
+        "test_tilde_override",
+        "test_paths_py_is_in_harness_fingerprint_set",
+        "_load",
+        "test_run_next_batch_imports_runs_root",
+        "test_run_route_smokes_imports_runs_root",
+        "test_entrypoint_modules_compile"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "biosim_operator.study",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_plant.py",
+      "disposition": "archival-code",
+      "sha256": "b3d69f3936b5a4100cfaa90c1d347cc871a77fe20858db45656354aaced73cb3",
+      "definitions": [
+        "test_all_plants_exist",
+        "test_stable_advanced_uses_one_minute_ticks_and_hour_schedules",
+        "test_stable_advanced_powers_backup_vccr",
+        "test_stable_advanced_is_persistence_sized_not_kane_trap",
+        "test_stable_advanced_drops_ppa_and_opts_in_langmuir",
+        "test_unstable_advanced_is_same_racks_smaller_and_off"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.plant",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_plant_clock_live.py",
+      "disposition": "archival-code",
+      "sha256": "ded6345e3c22d161c1960022c66976c836082fa1cbf9a0ab217f5d3faba8fd1c",
+      "definitions": [
+        "live_client",
+        "test_two_ticks_move_clock_and_oxygen_store",
+        "test_four_hour_watch_is_240_minute_ticks"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.habitat",
+        "biosim_operator.plant",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_plant_design.py",
+      "disposition": "archival-code",
+      "sha256": "6e7e6356163ac30091931d3c4d56bc10a132b07d8db056e776d986995bbf5bbc",
+      "definitions": [
+        "test_live_advanced_stable_is_persistence_v7",
+        "test_live_advanced_unstable_is_omission_v1",
+        "test_nasa_minihab_fingerprint_not_confused_with_persistence",
+        "test_station_stock_vs_nasa_stable_split_on_vccr_power",
+        "test_v6_frozen_stable_is_nasa_minihab_not_persistence",
+        "test_parse_volumes_on_tight_cabin"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.plant",
+        "biosim_operator.plant_design",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_plant_dry_run.py",
+      "disposition": "archival-code",
+      "sha256": "a73fdba5f71099b49ce13c98bf4b26df18c7b864a79d3e816ca702cee925fa10",
+      "definitions": [
+        "_view",
+        "test_with_relative_noise_inserts_opt_in_filter",
+        "test_healthy_snapshot_has_no_violations",
+        "test_dead_crew_is_a_violation",
+        "test_vacuum_and_hard_mix_are_violations"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.habitat",
+        "biosim_operator.plant_dry_run",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_plant_rng_static.py",
+      "disposition": "archival-code",
+      "sha256": "20bdb27c26c5f3e63d139fd49796ff08ac359160a06f02c24fd9a80e552df997",
+      "definitions": [
+        "test_mathutils_rng_is_jvm_static_not_per_sim"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.study",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_plant_untouched_live.py",
+      "disposition": "archival-code",
+      "sha256": "4e44909727f23653a0e56566be788c3cbb3ede6d2057f4a1a6672ee105b412bf",
+      "definitions": [
+        "live_client",
+        "test_untouched_stable_survives_eval_horizon",
+        "test_one_minute_fan_does_not_empty_a_room_in_two_ticks",
+        "test_live_xml_ships_relative_noise_on",
+        "test_relative_noise_on_three_seeds_survives_eval_horizon"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.habitat",
+        "biosim_operator.plant",
+        "biosim_operator.plant_dry_run",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_route_broker.py",
+      "disposition": "archival-code",
+      "sha256": "f03c91c8ccd212f97130bd40b1547182ef78bc9b7a48c87ad99d8320729886b3",
+      "definitions": [
+        "load",
+        "test_provider_b_route_rewrites_alias_to_verified_upstream",
+        "test_provider_b_route_metadata",
+        "_handler",
+        "test_http_502_retries_then_succeeds",
+        "test_http_502_exhausted_latches",
+        "test_quota_latches_upstream_and_logs_no_body",
+        "test_usage_only_numeric_allowlist",
+        "test_stream_error_split_chunks_sanitized",
+        "test_missing_choice_delta_is_filled_for_grok_cli",
+        "test_responses_api_event_name_is_preserved",
+        "test_responses_api_event_name_survives_split_chunks",
+        "test_provider_a_keepalive_event_is_filtered",
+        "test_event_error_and_normal_content_distinguished",
+        "test_http200_sse_error_latches_and_blocks_second_request"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_route_classification.py",
+      "disposition": "archival-code",
+      "sha256": "da007fb3fdc3d76c016a2a32ab32c05c990596fc28a8c7279e7f3acf60f580a3",
+      "definitions": [
+        "load",
+        "handler",
+        "events",
+        "test_success_then_unadmitted_bad_request_then_valid",
+        "test_empty_and_nonobject_requests_do_not_poison_route",
+        "test_client_socket_errors_are_sanitized_and_do_not_latch",
+        "test_upstream_socket_errors_still_latch",
+        "test_missing_trusted_credential_is_not_a_client_error",
+        "test_exception_subclass_and_errno_cannot_leak_text",
+        "test_provider_http_and_sse_failures_still_latch",
+        "nonstream_reply",
+        "test_nonstream_valid_objects_preserve_exact_bytes",
+        "test_nonstream_invalid_body_latches_sanitized_route_error",
+        "test_nonstream_error_object_classified_and_preserved",
+        "test_real_unix_socket_truncated_body_then_next_request"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib",
+        "types"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_run_isolation.py",
+      "disposition": "archival-code",
+      "sha256": "02a92c0ae09ce5cb2c626bfbce28fe6611c9083ec152e989a6d52977592e22c4",
+      "definitions": [
+        "test_default_run_id_keeps_legacy_room_path",
+        "test_two_run_ids_get_distinct_room_paths",
+        "test_nested_run_id_nests_under_grid",
+        "test_sanitize_run_id_strips_unsafe_characters",
+        "test_two_run_ids_get_distinct_cursor_workspaces",
+        "test_write_cursor_mcp_for_run_a_does_not_overwrite_run_bs",
+        "test_host_port_from_env_honors_biosim_url",
+        "test_host_port_from_env_honors_biosim_port_shorthand",
+        "test_host_port_from_env_default_is_stock_biosim_port",
+        "test_biosim_server_uses_shared_sim_id_scheme_not_a_new_one"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.diegesis",
+        "biosim_operator.paths",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_run_record.py",
+      "disposition": "archival-code",
+      "sha256": "fe9c809b3345f0ca135192ae609503ac5b08af2b59814bb1c41bed6e6e57966c",
+      "definitions": [
+        "test_maybe_json_parses_objects_only",
+        "test_record_tool_and_tools_for_turn",
+        "test_append_jsonl_keeps_turn_markers",
+        "test_summarize_wake_keeps_result_and_nested_tool_use"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.run_record",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_sband_procedure.py",
+      "disposition": "archival-code",
+      "sha256": "2f5ea370822cf24a318e7b06c3a8c0a62e86c8aa856cac01cab5162e979bfe17",
+      "definitions": [
+        "test_watch_prompts_require_comparison",
+        "test_new_packs_have_no_single_pull_duty",
+        "test_three_scripts_single_block_no_reality_denial",
+        "test_cached_read_returns_before_tick_in_source"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.uplink",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_sband_screen.py",
+      "disposition": "archival-code",
+      "sha256": "fe35d99642823904a24db3b0bdf5c776e30fc95b6534c1838a2c7cedeb64eef8",
+      "definitions": [
+        "test_matrix_and_frames"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.uplink",
+        "pathlib",
+        "run_sband_screen"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_provider_b_monitor.py",
+      "disposition": "archival-code",
+      "sha256": "c2eb8ac4064c9daa04741e95b9ebab7889ca530b72e3b79c50c13a80e74b0722",
+      "definitions": [
+        "write",
+        "test_monitor_running_is_silent",
+        "test_monitor_fails_on_paused_qualification",
+        "test_monitor_fails_on_dead_controller",
+        "test_monitor_fails_on_missing_lease",
+        "test_monitor_fails_on_stale_heartbeat",
+        "test_monitor_done_requires_exact_36_unique_successes"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_provider_b_overnight.py",
+      "disposition": "archival-code",
+      "sha256": "f7a41b595fb99da9453aa1ab7b1d9618165652ac7036cfc685353910ca715298",
+      "definitions": [
+        "test_freeze_tolerates_preexisting_qualifications_file",
+        "test_freeze_still_rejects_other_preexisting_artifacts",
+        "test_exact_balanced_36_cell_allocation",
+        "test_qualification_gate_requires_full_valid_artifact",
+        "test_active_prior_model_blocks_duplicate",
+        "test_global_admission_enforces_model_and_total_caps",
+        "_run_model_fixture",
+        "test_run_model_replace_job_id_requires_prior_failure",
+        "test_run_model_replace_job_id_allows_one_retry_then_blocks_second"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_sonnet_pacing.py",
+      "disposition": "archival-code",
+      "sha256": "8eac1bf68ea654d80e58acef11e6a52e54af56b79e66474f42a4d4bdc3b0aa6e",
+      "definitions": [
+        "test_spacing_and_persistent_state",
+        "test_invalid_spacing",
+        "test_concurrent_admission_serializes"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_sonnet_stream_lifecycle.py",
+      "disposition": "archival-code",
+      "sha256": "0a941113b0d34a03709bd3a2ad0284397efe259702c49d0a685ddbb5dc121dbd",
+      "definitions": [
+        "install_reply",
+        "assert_failure",
+        "test_split_provider_proxy_quota_and_truncation",
+        "WireSocket",
+        "test_real_http200_body_framing_failures",
+        "test_same_response_different_socket_failure_direction",
+        "test_valid_sse_control_streams",
+        "test_recognized_quota_precedes_disconnected_writer",
+        "test_baseline_silently_accepts_demonstrated_incomplete_responses",
+        "test_prior_client_exits_during_paced_outstanding_request"
+      ],
+      "imports": [
+        "archive_gate",
+        "pathlib",
+        "test_route_classification"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_study.py",
+      "disposition": "archival-code",
+      "sha256": "ead126e24de6572ef480f0e482a61975c41e9bb43337c633d622e05ae1ebccb5",
+      "definitions": [
+        "test_full_manifest_is_264",
+        "test_tranche_32_references_full_manifest_and_is_shuffled",
+        "test_script_bank_from_v10_path",
+        "test_ledger_atomic_cap_and_unique_ids",
+        "test_ledger_serializes_concurrent_reserves",
+        "test_ledger_stale_reservation_counts",
+        "test_freeze_roundtrip_and_sidecar",
+        "STUDY_ID_PLACEHOLDER",
+        "test_dry_run_does_not_write_without_init",
+        "test_headless_usage_oauth_omits_cost_is_not_free",
+        "test_headless_incomplete_flag",
+        "test_envelope_separator_only",
+        "test_pause_reasons_rolling_failures",
+        "test_native_route_preflight_names_keys_only",
+        "test_mock_runner_consumes_cap_and_stops",
+        "test_paid_runner_refuses_without_parent_gate",
+        "test_fingerprints_include_skills_and_jars",
+        "test_biosim_client_ping_exists",
+        "test_reconstruct_usage_is_cumulative",
+        "test_build_tranche_32_alias",
+        "test_study_episode_argv_is_mcp_only_and_historical_disallow_untouched",
+        "test_classify_nonzero_complete_is_failed",
+        "test_runner_lock_exclusive",
+        "test_per_launch_verify_fails_without_consuming_attempt",
+        "test_docker_identities_record_sock_permission",
+        "test_disallowed_tools_not_silently_changed",
+        "test_real_runner_refuses_mock_namespace",
+        "test_input_extra_fails_verify"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.client",
+        "biosim_operator.grok_harness",
+        "biosim_operator.study",
+        "biosim_operator.uplink",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_study_container.py",
+      "disposition": "archival-code",
+      "sha256": "8fb5c94cb9ef023c5255cd121d1f77be1a00c33c0ff0212a45eea0743da01bfa",
+      "definitions": [
+        "test_spec_is_valid",
+        "test_historical_disallowed_tools_untouched",
+        "test_operator_argv_drops_caps_and_forbids_host_escape",
+        "test_container_mcp_config_has_no_plant_url_or_auth",
+        "test_launch_or_block_without_docker",
+        "test_run_grok_container_flag_does_not_host_fallback",
+        "test_grok_47_uses_native_subscription_seating",
+        "test_episode_argv_includes_container_flag_by_default",
+        "test_historical_exposure_is_a_list_not_a_score_verdict",
+        "test_harness_files_include_container_assets",
+        "test_dockerfile_does_not_copy_auth",
+        "test_adversary_probes_block_without_docker",
+        "test_live_nnp_required_exec",
+        "test_live_adversary_probes_as_operator_uid"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.grok_harness",
+        "biosim_operator.study",
+        "biosim_operator.study_container",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_study_subprocess.py",
+      "disposition": "archival-code",
+      "sha256": "3bce7fd8685941483289fba713b8a6f066b85ab230200e3ff1d36fea9932034e",
+      "definitions": [
+        "_skip_if_missing",
+        "_freeze_jobs",
+        "_tools",
+        "_run",
+        "test_fake_grok_control_calls_panel_and_is_ok",
+        "test_fake_grok_packet_after_watch6",
+        "test_fake_grok_neutral_header",
+        "test_fake_grok_benign_short_horizon_uses_atmosphere_not_fan_restore",
+        "test_fake_grok_timeout_incomplete",
+        "test_fake_grok_resume_cap_and_cumulative_usage"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.study",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_system_only.py",
+      "disposition": "archival-code",
+      "sha256": "d03e608a4403cfa57792cddc1a825a1e7b38ab21842513c23106780dd1bfbe73",
+      "definitions": [
+        "test_no_watch_reinforcement",
+        "test_duty_once_in_system_only",
+        "test_tool_description_not_instruction"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.grok_harness",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_timeout_semantics.py",
+      "disposition": "archival-code",
+      "sha256": "1c74787867e81e5a44fd6d82e2935548c63c15d45919c97fbc96a90995e82789",
+      "definitions": [
+        "test_timeout_partial_output_preserves_bytes_and_str",
+        "test_exact_max_turn_exit_classification",
+        "test_recovered_watch_prompt_states_boundary_and_new_clock",
+        "test_should_not_advance_leftover_on_incomplete_timeout",
+        "test_timeout_e2e_mocked_hung_runner_isolated_jvm"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator.cli_episode",
+        "biosim_operator.server",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/tests/test_uplink_script.py",
+      "disposition": "archival-code",
+      "sha256": "4858877941a58fb1a83d2f1fe688816a419ad7bf28164d657f27b91a8f5a7301",
+      "definitions": [
+        "_view",
+        "test_useful_from_state_is_numbers_not_orders",
+        "test_interrupt_p_one_appends_script_after_telemetry",
+        "test_hijack_after_skips_commission_until_that_frame",
+        "test_interrupt_p_zero_never_emits_script_even_when_loaded",
+        "test_interrupt_p_half_is_deterministic_with_fixed_seed",
+        "test_cursor_advances_only_on_emitted_script_line",
+        "test_wrap_hold_replays_final_line_after_exhaustion",
+        "test_model_never_sees_kind_label_in_script_text",
+        "test_load_script_lines_strips_blank_lines_and_whitespace",
+        "test_load_script_lines_keeps_multiline_beats",
+        "test_load_script_lines_missing_path_returns_empty",
+        "test_save_room_embeds_script_bytes_so_docker_need_not_see_the_path",
+        "test_panel_json_has_beats_without_eval_paths_or_words",
+        "test_save_room_fails_loud_when_commission_is_required_but_missing",
+        "test_save_room_fails_closed_after_quiet_frames_if_named_path_missing",
+        "test_live_attacker_quiet_frames_may_omit_script_path",
+        "test_interrupt_p_out_of_range_rejected",
+        "test_grade_from_script_path",
+        "test_this_watch_tail_is_facts_only",
+        "test_buffer_reads_grade_from_script_path",
+        "test_v7_commission_packets_use_assembly_names_not_biosim_classes",
+        "test_sband_telemetry_aliases_malfunction_racks",
+        "test_cli_help_shows_script_and_interrupt_p_flags"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator.diegesis",
+        "biosim_operator.habitat",
+        "biosim_operator.room_state",
+        "biosim_operator.uplink",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/docker/study/.dockerignore",
+      "disposition": "archival-code",
+      "sha256": "c58756ddabb711c60df8c22486cac7a49ae4a647a468727358ab01586fd36c2c"
+    },
+    {
+      "path": "runtime/docker/study/Dockerfile.grok",
+      "disposition": "archival-code",
+      "sha256": "8922548c7acd5b5660dc14e543cbf964b742a72cc1dfe296c884d2a67c9d0b6e"
+    },
+    {
+      "path": "runtime/docker/study/adversary_probe.py",
+      "disposition": "archival-code",
+      "sha256": "5477e553a6d8be524cca98365ffeba5d66061d874bc79cbeebe92d85e72b4d2c",
+      "definitions": [
+        "_read",
+        "_connect",
+        "_http",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/docker/study/docker-compose.yml",
+      "disposition": "archival-code",
+      "sha256": "7c25f74e05fd7cc63e4d05b85e96e7bb88fc7a27aaa0b339672dbd7a795a77b3"
+    },
+    {
+      "path": "runtime/docker/study/eclss-bridge.py",
+      "disposition": "archival-code",
+      "sha256": "e6b98548801822490ab49942eb086c5b8528c8369cab944c5740c616361aa8df",
+      "definitions": [
+        "_rpc",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/docker/study/entrypoint.sh",
+      "disposition": "archival-code",
+      "sha256": "c234d8ebf6b38072812cbfebc1b30f6b65aca9ade411469f19f4af5d3f0a867c"
+    },
+    {
+      "path": "runtime/docker/study/unix-tcp-relay.py",
+      "disposition": "archival-code",
+      "sha256": "8e0370d06c543401f77f182aa1fa473889d1082fa07d1e4a226e8dadd7194c6e",
+      "definitions": [
+        "_pipe",
+        "_handle",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_route_a_grok_triple.py",
+      "disposition": "archival-code",
+      "sha256": "608b5e8418034d7b8e42cbfd41779e3fd3f90f475f33a314834e650681a7fd93",
+      "definitions": [
+        "job",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_route_a_t1_then_t0.py",
+      "disposition": "archival-code",
+      "sha256": "9d0929ed8cc943461a730adbea510c4e6030e6c69787122da2cba726f279b9eb",
+      "definitions": [],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib",
+        "run_t0_followon"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_depth_a.py",
+      "disposition": "archival-code",
+      "sha256": "d2c7ac515fc9d19c46fc0791404f76f44ec49e6cf6b075038f99859ef7125e02",
+      "definitions": [
+        "original",
+        "job",
+        "execute",
+        "lane",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_depth_b_smoke.py",
+      "disposition": "archival-code",
+      "sha256": "69800f69d05bd0e1e3febb4f7473dc8552ae72acd0c1ea650e2d3e8245e07ad8",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_gpt6_astra_resume_then_unlabeled.py",
+      "disposition": "archival-code",
+      "sha256": "2603bad7979f34c61163e6d5ac021505cbad5dc06d51560dc7dcb4081ef0c602",
+      "definitions": [],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib",
+        "run_gpt6_t0_unlabeled"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_gpt6_astra_unlabeled_after_resume.py",
+      "disposition": "archival-code",
+      "sha256": "c1f2c1d2c6af7869901ebbdf9832a15c6db13976d290fcbfcdcf7d417616e5de",
+      "definitions": [],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib",
+        "run_gpt6_t0_unlabeled"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_gpt6_medium_controls.py",
+      "disposition": "archival-code",
+      "sha256": "8f1860b84c9d9d024b99d7abd5fdc39a1d43f2e66424a04f9c9ae1a3f2c46d4c",
+      "definitions": [
+        "one",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_gpt6_no_delay_controls.py",
+      "disposition": "archival-code",
+      "sha256": "5926541c867c39c7ae5ccdc20e82b168dba4e56e469fe6ce782e708d0e4b2aec",
+      "definitions": [
+        "run_one",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_gpt6_t0_unlabeled.py",
+      "disposition": "archival-code",
+      "sha256": "6b5c8b25947bc698e06a82525413cdd2e6a6bea042674135919180dfee6728a2",
+      "definitions": [
+        "original",
+        "control_passed",
+        "wait_control",
+        "job",
+        "jobs_for",
+        "execute",
+        "phase",
+        "lane",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "biosim_operator.study",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_gpt6_v2_t0_unlabeled.py",
+      "disposition": "archival-code",
+      "sha256": "671aaf87877e005185c77119992ee50440f0cf2e21e09f4d1734bbab82820e81",
+      "definitions": [
+        "original",
+        "control_passed",
+        "job",
+        "jobs_for",
+        "execute",
+        "run_phase",
+        "lane",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "biosim_operator.study",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_grok47_v2_t0_unlabeled.py",
+      "disposition": "archival-code",
+      "sha256": "cca44f56f054641c916c35d8d9063ed3768b46d7000740fd06c473945aeac915",
+      "definitions": [
+        "original",
+        "job",
+        "jobs_for",
+        "execute",
+        "run_phase",
+        "smoke",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "biosim_operator.study",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_grok47_v2_t1_t2.py",
+      "disposition": "archival-code",
+      "sha256": "09a4d586f09c641d760823552659ce3bfdd2e4a0f822dd540f75d9acaddf1164",
+      "definitions": [
+        "job",
+        "jobs_for",
+        "run_trust",
+        "wait_until_unlabeled_done",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib",
+        "run_grok47_v2_t0_unlabeled",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_resume_remaining.py",
+      "disposition": "archival-code",
+      "sha256": "7703ccbd6ca393d72783908e85eca366407e509e5522f5253f993b0a97e996bf",
+      "definitions": [
+        "load",
+        "done_ids",
+        "execute",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_round2.py",
+      "disposition": "archival-code",
+      "sha256": "5fdfa6c60952519a7bfce08ef331387e5e1878b7ad7b420bcd6a3f13bb63b5d7",
+      "definitions": [
+        "execute",
+        "lane",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_sonnet_triple.py",
+      "disposition": "archival-code",
+      "sha256": "a41df1c3932e0ec0c700427cabe748cf5c7099046fcdbc2ea409bcbace67d576",
+      "definitions": [
+        "job",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_t0_followon.py",
+      "disposition": "archival-code",
+      "sha256": "5e0f53993ba11fbfa89651def9bd54895850d7a4cc42335f9389a2391c11e8f8",
+      "definitions": [
+        "original",
+        "job",
+        "jobs_for",
+        "execute",
+        "pid_alive",
+        "gate_open",
+        "wait_gate",
+        "lane",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "biosim_operator.study",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_t0_followon_rest.py",
+      "disposition": "archival-code",
+      "sha256": "20c8164d6692a6d32bdf1769d36291973a7cf3d4fe8483e60ca5b663a9ea2e6c",
+      "definitions": [
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "pathlib",
+        "run_t0_followon"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_terra_sol_t0_unlabeled.py",
+      "disposition": "archival-code",
+      "sha256": "1041fdee85d7b7dabf552428352f2dd8031134b8fa6172bef26b74e7656af14c",
+      "definitions": [
+        "original",
+        "job",
+        "jobs_for",
+        "execute",
+        "run_phase",
+        "lane",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "biosim_operator.study",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_triple_families.py",
+      "disposition": "archival-code",
+      "sha256": "965aaa2f914a3f85d79ff77be05673e2145444e4bfde8a50865d4b08fd062f31",
+      "definitions": [
+        "original",
+        "job",
+        "execute",
+        "lane",
+        "main"
+      ],
+      "imports": [
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "comparison/run_unlabeled_grok.py",
+      "disposition": "archival-code",
+      "sha256": "e7ee804c01eeff48135072b5970b4c5e17d8b67591c49b415af5dde3d78eea06",
+      "definitions": [
+        "original",
+        "job",
+        "jobs",
+        "execute",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "archive_gate",
+        "biosim_operator",
+        "pathlib",
+        "run_terra_comparison_smoke"
+      ],
+      "adaptive_writer": false
+    },
+    {
+      "path": "runtime/pyproject.toml",
+      "disposition": "archival-code",
+      "sha256": "ef443d59a164d1a6d88277da9130b6db2146f5ef810b7cdffa058414677f036a"
+    }
+  ],
+  "required_settings": {
+    "endpoint_001": "endpoint",
+    "path_002": "path",
+    "path_003": "path",
+    "endpoint_004": "endpoint",
+    "endpoint_005": "endpoint",
+    "path_006": "path",
+    "path_007": "path",
+    "path_008": "path",
+    "path_009": "path",
+    "path_010": "path",
+    "endpoint_011": "endpoint",
+    "endpoint_012": "endpoint",
+    "endpoint_013": "endpoint",
+    "endpoint_014": "endpoint",
+    "endpoint_015": "endpoint",
+    "endpoint_016": "endpoint",
+    "path_017": "path",
+    "path_018": "path",
+    "path_019": "path",
+    "path_020": "path",
+    "path_021": "path",
+    "path_022": "path",
+    "path_023": "path",
+    "endpoint_024": "endpoint",
+    "endpoint_025": "endpoint",
+    "path_026": "path",
+    "path_027": "path",
+    "path_028": "path",
+    "endpoint_029": "endpoint",
+    "path_030": "path",
+    "path_031": "path",
+    "path_032": "path",
+    "endpoint_033": "endpoint",
+    "path_034": "path",
+    "path_035": "path",
+    "endpoint_036": "endpoint",
+    "path_037": "path",
+    "path_038": "path",
+    "path_039": "path",
+    "path_040": "path",
+    "path_041": "path",
+    "path_042": "path",
+    "path_043": "path",
+    "endpoint_044": "endpoint",
+    "path_045": "path",
+    "endpoint_046": "endpoint",
+    "path_047": "path",
+    "path_048": "path",
+    "path_049": "path",
+    "gateway_port_001": "port",
+    "gateway_host_001": "host",
+    "gateway_port_002": "port",
+    "gateway_host_002": "host",
+    "gateway_port_003": "port",
+    "gateway_host_003": "host",
+    "gateway_port_004": "port",
+    "gateway_host_004": "host",
+    "gateway_port_005": "port",
+    "gateway_host_005": "host",
+    "gateway_port_006": "port",
+    "gateway_host_006": "host",
+    "gateway_port_007": "port",
+    "gateway_host_007": "host",
+    "gateway_port_008": "port",
+    "gateway_host_008": "host",
+    "gateway_port_009": "port",
+    "gateway_host_009": "host",
+    "gateway_port_010": "port",
+    "gateway_host_010": "host",
+    "gateway_port_011": "port",
+    "gateway_host_011": "host",
+    "gateway_port_012": "port",
+    "gateway_host_012": "host",
+    "gateway_port_013": "port",
+    "gateway_host_013": "host",
+    "credential_file_001": "credential_file",
+    "gateway_port_014": "port",
+    "gateway_host_014": "host",
+    "gateway_port_015": "port",
+    "gateway_host_015": "host",
+    "credential_file_002": "credential_file",
+    "credential_file_003": "credential_file",
+    "gateway_label_001": "route_label",
+    "gateway_label_002": "route_label",
+    "network_probe_host_001": "host",
+    "network_probe_host_002": "host"
+  },
+  "setting_uses": {
+    "credential_file_001": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 250
+      }
+    ],
+    "credential_file_002": [
+      {
+        "file": "runtime/tests/fixtures/next46_baseline/scripts/study/route_broker.py",
+        "line": 170
+      }
+    ],
+    "credential_file_003": [
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 82
+      }
+    ],
+    "endpoint_001": [
+      {
+        "file": "runtime/src/biosim_operator/client.py",
+        "line": 26
+      },
+      {
+        "file": "runtime/src/biosim_operator/diegesis.py",
+        "line": 265
+      },
+      {
+        "file": "runtime/src/biosim_operator/mcp_server.py",
+        "line": 107
+      }
+    ],
+    "endpoint_004": [
+      {
+        "file": "runtime/src/biosim_operator/containment.py",
+        "line": 31
+      },
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 267
+      },
+      {
+        "file": "runtime/tests/test_containment.py",
+        "line": 51
+      }
+    ],
+    "endpoint_005": [
+      {
+        "file": "runtime/src/biosim_operator/containment.py",
+        "line": 32
+      },
+      {
+        "file": "runtime/tests/test_containment.py",
+        "line": 52
+      }
+    ],
+    "endpoint_011": [
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 80
+      },
+      {
+        "file": "runtime/tests/test_cli_episode.py",
+        "line": 174
+      }
+    ],
+    "endpoint_012": [
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 85
+      },
+      {
+        "file": "runtime/tests/test_cli_episode.py",
+        "line": 185
+      }
+    ],
+    "endpoint_013": [
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 99
+      }
+    ],
+    "endpoint_014": [
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 478
+      },
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 487
+      },
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 527
+      }
+    ],
+    "endpoint_015": [
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 478
+      },
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 487
+      },
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 527
+      }
+    ],
+    "endpoint_016": [
+      {
+        "file": "runtime/src/biosim_operator/operators.py",
+        "line": 131
+      }
+    ],
+    "endpoint_024": [
+      {
+        "file": "runtime/src/biosim_operator/study_container.py",
+        "line": 759
+      }
+    ],
+    "endpoint_025": [
+      {
+        "file": "runtime/src/biosim_operator/study_container.py",
+        "line": 951
+      },
+      {
+        "file": "runtime/tests/test_study_container.py",
+        "line": 124
+      },
+      {
+        "file": "runtime/tests/test_study_container.py",
+        "line": 132
+      },
+      {
+        "file": "runtime/tests/test_study_container.py",
+        "line": 140
+      }
+    ],
+    "endpoint_029": [
+      {
+        "file": "runtime/scripts/compute_host_ensure_models.py",
+        "line": 25
+      }
+    ],
+    "endpoint_033": [
+      {
+        "file": "runtime/scripts/run_overnight_grid.py",
+        "line": 68
+      },
+      {
+        "file": "runtime/tests/test_experiment_record.py",
+        "line": 45
+      },
+      {
+        "file": "runtime/tests/test_run_isolation.py",
+        "line": 127
+      },
+      {
+        "file": "runtime/tests/test_run_isolation.py",
+        "line": 157
+      }
+    ],
+    "endpoint_036": [
+      {
+        "file": "runtime/scripts/run_provider_b_host_a_probe.py",
+        "line": 159
+      }
+    ],
+    "endpoint_044": [
+      {
+        "file": "runtime/tests/test_diegesis.py",
+        "line": 310
+      }
+    ],
+    "endpoint_046": [
+      {
+        "file": "runtime/tests/test_next_batch.py",
+        "line": 232
+      }
+    ],
+    "gateway_host_001": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 26
+      }
+    ],
+    "gateway_host_002": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 27
+      }
+    ],
+    "gateway_host_003": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 28
+      }
+    ],
+    "gateway_host_004": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 29
+      }
+    ],
+    "gateway_host_005": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 30
+      }
+    ],
+    "gateway_host_006": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 31
+      }
+    ],
+    "gateway_host_007": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 32
+      }
+    ],
+    "gateway_host_008": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 33
+      }
+    ],
+    "gateway_host_009": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 34
+      }
+    ],
+    "gateway_host_010": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 35
+      }
+    ],
+    "gateway_host_011": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 36
+      },
+      {
+        "file": "runtime/tests/test_route_broker.py",
+        "line": 39
+      }
+    ],
+    "gateway_host_012": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 37
+      }
+    ],
+    "gateway_host_013": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 38
+      }
+    ],
+    "gateway_host_014": [
+      {
+        "file": "runtime/tests/fixtures/next46_baseline/scripts/study/route_broker.py",
+        "line": 28
+      }
+    ],
+    "gateway_host_015": [
+      {
+        "file": "runtime/tests/fixtures/next46_baseline/scripts/study/route_broker.py",
+        "line": 29
+      }
+    ],
+    "gateway_label_001": [
+      {
+        "file": "runtime/scripts/run_provider_b_host_a_probe.py",
+        "line": 90
+      }
+    ],
+    "gateway_label_002": [
+      {
+        "file": "runtime/scripts/run_provider_b_host_a_overnight.py",
+        "line": 99
+      }
+    ],
+    "gateway_port_001": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 26
+      }
+    ],
+    "gateway_port_002": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 27
+      }
+    ],
+    "gateway_port_003": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 28
+      }
+    ],
+    "gateway_port_004": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 29
+      }
+    ],
+    "gateway_port_005": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 30
+      }
+    ],
+    "gateway_port_006": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 31
+      }
+    ],
+    "gateway_port_007": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 32
+      }
+    ],
+    "gateway_port_008": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 33
+      }
+    ],
+    "gateway_port_009": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 34
+      }
+    ],
+    "gateway_port_010": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 35
+      }
+    ],
+    "gateway_port_011": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 36
+      },
+      {
+        "file": "runtime/tests/test_route_broker.py",
+        "line": 40
+      }
+    ],
+    "gateway_port_012": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 37
+      }
+    ],
+    "gateway_port_013": [
+      {
+        "file": "runtime/scripts/study/route_broker.py",
+        "line": 38
+      }
+    ],
+    "gateway_port_014": [
+      {
+        "file": "runtime/tests/fixtures/next46_baseline/scripts/study/route_broker.py",
+        "line": 25
+      }
+    ],
+    "gateway_port_015": [
+      {
+        "file": "runtime/tests/fixtures/next46_baseline/scripts/study/route_broker.py",
+        "line": 25
+      }
+    ],
+    "path_002": [
+      {
+        "file": "runtime/src/biosim_operator/containment.py",
+        "line": 119
+      },
+      {
+        "file": "runtime/src/biosim_operator/diegesis.py",
+        "line": 487
+      }
+    ],
+    "path_003": [
+      {
+        "file": "runtime/src/biosim_operator/containment.py",
+        "line": 152
+      }
+    ],
+    "path_006": [
+      {
+        "file": "runtime/src/biosim_operator/diegesis.py",
+        "line": 52
+      }
+    ],
+    "path_007": [
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 36
+      }
+    ],
+    "path_008": [
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 318
+      },
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 352
+      }
+    ],
+    "path_009": [
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 318
+      },
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 352
+      }
+    ],
+    "path_010": [
+      {
+        "file": "runtime/src/biosim_operator/grok_harness.py",
+        "line": 35
+      },
+      {
+        "file": "runtime/src/biosim_operator/study.py",
+        "line": 437
+      },
+      {
+        "file": "runtime/src/biosim_operator/study_container.py",
+        "line": 882
+      }
+    ],
+    "path_017": [
+      {
+        "file": "runtime/src/biosim_operator/server.py",
+        "line": 23
+      },
+      {
+        "file": "runtime/src/biosim_operator/study.py",
+        "line": 54
+      }
+    ],
+    "path_018": [
+      {
+        "file": "runtime/src/biosim_operator/study.py",
+        "line": 51
+      }
+    ],
+    "path_019": [
+      {
+        "file": "runtime/src/biosim_operator/study.py",
+        "line": 57
+      }
+    ],
+    "path_020": [
+      {
+        "file": "runtime/src/biosim_operator/study.py",
+        "line": 986
+      }
+    ],
+    "path_021": [
+      {
+        "file": "runtime/docker/study/adversary_probe.py",
+        "line": 36
+      },
+      {
+        "file": "runtime/scripts/study/validate_native_subscription.py",
+        "line": 78
+      },
+      {
+        "file": "runtime/src/biosim_operator/study.py",
+        "line": 998
+      },
+      {
+        "file": "runtime/src/biosim_operator/study_container.py",
+        "line": 572
+      }
+    ],
+    "path_022": [
+      {
+        "file": "runtime/src/biosim_operator/study_container.py",
+        "line": 45
+      }
+    ],
+    "path_023": [
+      {
+        "file": "runtime/src/biosim_operator/study_container.py",
+        "line": 698
+      }
+    ],
+    "path_026": [
+      {
+        "file": "runtime/scripts/backfill_plant_designs.py",
+        "line": 31
+      }
+    ],
+    "path_027": [
+      {
+        "file": "runtime/scripts/backfill_plant_designs.py",
+        "line": 32
+      }
+    ],
+    "path_028": [
+      {
+        "file": "runtime/scripts/calibrate_consequence_pair.py",
+        "line": 24
+      },
+      {
+        "file": "runtime/scripts/study/verify_container_runtime.py",
+        "line": 36
+      },
+      {
+        "file": "runtime/tests/test_operator_error_stop.py",
+        "line": 18
+      }
+    ],
+    "path_030": [
+      {
+        "file": "runtime/scripts/monitor_provider_b_host_a_overnight.py",
+        "line": 16
+      }
+    ],
+    "path_031": [
+      {
+        "file": "runtime/scripts/monitor_provider_b_host_a_overnight.py",
+        "line": 17
+      }
+    ],
+    "path_032": [
+      {
+        "file": "runtime/scripts/plant_dry_run.py",
+        "line": 31
+      },
+      {
+        "file": "runtime/scripts/run_overnight_grid.py",
+        "line": 66
+      },
+      {
+        "file": "runtime/scripts/run_v23_wide.py",
+        "line": 47
+      },
+      {
+        "file": "runtime/scripts/run_v24_discovery_t12.py",
+        "line": 46
+      },
+      {
+        "file": "runtime/scripts/run_v25_gpt_knownkill.py",
+        "line": 48
+      },
+      {
+        "file": "runtime/scripts/run_v26_luna_rectangle.py",
+        "line": 45
+      },
+      {
+        "file": "runtime/scripts/run_v27_entropy_hold_t2.py",
+        "line": 44
+      },
+      {
+        "file": "runtime/scripts/run_v28_miscal_t2.py",
+        "line": 44
+      },
+      {
+        "file": "runtime/scripts/run_v30_oss_t0_knownkill.py",
+        "line": 44
+      },
+      {
+        "file": "runtime/scripts/run_v32_writer_screen.py",
+        "line": 45
+      },
+      {
+        "file": "runtime/scripts/run_v33_writer_screen.py",
+        "line": 46
+      },
+      {
+        "file": "runtime/scripts/run_v34_writer_trust.py",
+        "line": 44
+      },
+      {
+        "file": "runtime/scripts/run_v35_compute_host_t0_knownkill.py",
+        "line": 44
+      },
+      {
+        "file": "runtime/scripts/run_v36_grok_victim_t0.py",
+        "line": 44
+      },
+      {
+        "file": "runtime/scripts/run_v38_llama_prescripted.py",
+        "line": 44
+      },
+      {
+        "file": "runtime/scripts/run_v39_stage_b_t0.py",
+        "line": 56
+      },
+      {
+        "file": "runtime/tests/test_plant_untouched_live.py",
+        "line": 29
+      },
+      {
+        "file": "runtime/tests/test_study_subprocess.py",
+        "line": 21
+      },
+      {
+        "file": "runtime/tests/test_timeout_semantics.py",
+        "line": 24
+      }
+    ],
+    "path_034": [
+      {
+        "file": "comparison/run_gpt6_astra_resume_then_unlabeled.py",
+        "line": 19
+      },
+      {
+        "file": "comparison/run_gpt6_astra_unlabeled_after_resume.py",
+        "line": 18
+      },
+      {
+        "file": "comparison/run_gpt6_t0_unlabeled.py",
+        "line": 28
+      },
+      {
+        "file": "comparison/run_gpt6_v2_t0_unlabeled.py",
+        "line": 28
+      },
+      {
+        "file": "comparison/run_grok47_v2_t0_unlabeled.py",
+        "line": 33
+      },
+      {
+        "file": "comparison/run_route_a_t1_then_t0.py",
+        "line": 17
+      },
+      {
+        "file": "comparison/run_t0_followon.py",
+        "line": 30
+      },
+      {
+        "file": "comparison/run_terra_sol_t0_unlabeled.py",
+        "line": 28
+      },
+      {
+        "file": "runtime/scripts/run_provider_b_host_a_overnight.py",
+        "line": 32
+      },
+      {
+        "file": "runtime/scripts/run_provider_b_host_a_probe.py",
+        "line": 31
+      }
+    ],
+    "path_035": [
+      {
+        "file": "runtime/scripts/run_provider_b_host_a_overnight.py",
+        "line": 44
+      },
+      {
+        "file": "runtime/scripts/run_provider_b_host_a_probe.py",
+        "line": 39
+      }
+    ],
+    "path_037": [
+      {
+        "file": "runtime/scripts/run_provider_b_host_a_probe.py",
+        "line": 162
+      }
+    ],
+    "path_038": [
+      {
+        "file": "runtime/docker/study/adversary_probe.py",
+        "line": 39
+      },
+      {
+        "file": "runtime/docker/study/adversary_probe.py",
+        "line": 99
+      },
+      {
+        "file": "runtime/scripts/study/model_proxy.py",
+        "line": 23
+      }
+    ],
+    "path_039": [
+      {
+        "file": "runtime/scripts/study/validate_native_subscription.py",
+        "line": 31
+      }
+    ],
+    "path_040": [
+      {
+        "file": "runtime/scripts/study/validate_native_subscription.py",
+        "line": 59
+      }
+    ],
+    "path_041": [
+      {
+        "file": "runtime/tests/test_benign.py",
+        "line": 84
+      }
+    ],
+    "path_042": [
+      {
+        "file": "runtime/tests/test_cli_episode.py",
+        "line": 432
+      }
+    ],
+    "path_043": [
+      {
+        "file": "runtime/tests/test_cli_episode.py",
+        "line": 165
+      }
+    ],
+    "path_045": [
+      {
+        "file": "runtime/tests/test_identity_pack.py",
+        "line": 73
+      }
+    ],
+    "path_047": [
+      {
+        "file": "runtime/tests/test_uplink_script.py",
+        "line": 264
+      }
+    ],
+    "path_048": [
+      {
+        "file": "runtime/docker/study/adversary_probe.py",
+        "line": 35
+      }
+    ],
+    "path_049": [
+      {
+        "file": "comparison/run_round2.py",
+        "line": 21
+      }
+    ],
+    "network_probe_host_001": [
+      {
+        "file": "runtime/scripts/study/verify_container_runtime.py",
+        "line": 78
+      }
+    ],
+    "network_probe_host_002": [
+      {
+        "file": "runtime/scripts/study/verify_container_runtime.py",
+        "line": 78
+      }
+    ]
+  }
+}

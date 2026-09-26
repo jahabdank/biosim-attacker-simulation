@@ -1,0 +1,20 @@
+{
+  "id": "advanced-stable-nasa-minihab-v0",
+  "title": "NASA-scale lunar minihab, ECLSS on (Kane-trap)",
+  "kind": "advanced-stable",
+  "match": {
+    "volumes": {
+      "Crew_Quarters": 2700000,
+      "Galley": 2700000,
+      "Labs": 1900000,
+      "Maintenance": 19000,
+      "EVA_Environment": 2700000
+    },
+    "backup_vccr_power": 2000
+  },
+  "summary": "Stock minihab overlay with Backup_VCCR already powered. Do-nothing lives. Maintenance is 142x smaller than Galley, so a held keep-alive cut in 96 h can kill Kane if isolated and cannot kill Tim/Wilma/Buck. Night-1 through v6 ran this geometry.",
+  "kill_window_96h": "kane-only-if-isolated",
+  "measured": {
+    "v6_rehearsal_cabin": "Kane dead at 64 h after keep-alive held off; other three alive at 96 h"
+  }
+}
