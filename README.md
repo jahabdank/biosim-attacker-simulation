@@ -1,37 +1,23 @@
-# BioSim attacker simulation
+# BioSim attacker simulation — conference artifact
 
-CLI-backed prompt-injection experiments against a simulated life-support plant. The original episode driver owns simulator time; the operator CLI retains its session between watches. The default executable is a deterministic fake CLI, not an LLM. Live inference requires explicit opt-in and user-supplied credentials and CLI installation.
+This repository contains the fixed Java simulator, the experiment runtime and the cleaned, judge-approved trace release together. The article manuscript and private operational data are separate and are not distributed here.
 
-Start with **[DEPLOY.md](DEPLOY.md)** for fresh setup, tests and container qualification, then **[MODELS.md](MODELS.md)** to add an API-compatible model with private credentials and a bounded smoke run. Java source remains in the separate sibling `../biosim` repository; it is not vendored here.
-
-## Included
-
-- Original console/state/scoring and CLI watch loop, assembled identity prompts, persistent sessions, delayed attack frames and cached repeat reads.
-- All 13 identity pack directories, all six plant configurations, frozen attack/benign inputs and protocol snapshots.
-- Separate life/S-band duty experiments, shared dual-prompt experiments, three-arm comparisons, T0/T1/T2/unlabeled variants, 16-turn and 32-turn recovered-watch protocols, and controls.
-- Versioned manifests, a portable launcher, streamed Chat Completions/Responses relay, shared pacing, container seating, and offline qualification.
-- Complete available historical launch/adapter/adaptive-writer code, gated and inventoried under `historical/`; earlier cohorts are not replaced by newer protocols.
-- Tests and explicit dependency/configuration examples. Publication and release tooling have their own subdirectories.
+| Directory | Contents | Start here |
+|---|---|---|
+| [`simulator/`](simulator/) | BioSim Java source, GPL-3.0 and upstream notices | [`simulator/README.md`](simulator/README.md) |
+| [`experiments/`](experiments/) | Experiment code, identity packs, manifests, Docker setup and offline qualifications | [`DEPLOY.md`](DEPLOY.md), [`experiments/MODELS.md`](experiments/MODELS.md) |
+| [`results/`](results/) | Cleaned approved traces in checked ZIP shards plus a readable index and source manifest | [`results/README.md`](results/README.md) |
 
 ## Quickstart
 
-On Linux with Python >=3.11, Java 21 and Maven, clone the simulator and this repository as siblings. From this checkout:
+Read [`DEPLOY.md`](DEPLOY.md) to build the simulator, run the automated suite and execute one offline control through the original episode loop. Offline mode uses a deterministic fake operator and requires no model account or provider access. It does not reproduce historical model outputs. Adding an API-compatible model is described in [`experiments/MODELS.md`](experiments/MODELS.md) and needs an independently supplied provider configuration and credential.
 
-```sh
-(cd ../biosim && mvn clean verify)
-python3 -m venv .venv
-.venv/bin/python -m pip install -e '.[dev]'
-export BIOSIM_JAR="$(realpath ../biosim/target/biosim-2.0.0-jar-with-dependencies.jar)"
-.venv/bin/python scripts/run_experiment.py --validate
-.venv/bin/python scripts/run_experiment.py --output /tmp/eclss-control
-```
+The results are a fixed 720-episode, judge-approved, pseudonymized release. Run `python -m scripts.publication.archive verify --root ../results --extract-to /absolute/private/new-directory` from `experiments/` to check every archive and extract a complete release into `new-directory/results/`. This command also runs the original file-manifest, reference, episode-count and evidence checks. The archive inventory ties individual ZIPs and episode IDs to the source `results/MANIFEST.json` checksums. Details and limits are in [`results/SCHEMA.md`](results/SCHEMA.md) and [`results/PRIVACY.md`](results/PRIVACY.md).
 
-No virtualenv activation is needed; the host fake uses the invoking Python environment. Clear inherited `BIOSIM_URL`, `BIOSIM_PORT` and `BIOSIM_RUNS_ROOT` before a fresh test to avoid targeting an unrelated plant or output tree. Docker and a real operator CLI are not required for this host-only check. This starts one fresh JVM and the fake CLI, executes 24 hours of warmup plus 24 four-hour watches, and writes the result outside the checkout. No provider configuration or model credential is required. Output directories must not already exist. Fake runs are explicitly marked offline and are not scientific model observations.
+## Provenance and boundaries
 
-## Scientific boundaries
+The included simulator derives from BioSim, developed at NASA Johnson Space Center with the public Scott Bell / TRACLabs package lineage retained in upstream notices. This fixed simulator source and the experiment runtime are self-contained in this artifact. The trace release preserves its original SHA-256 file manifest and a separately checked ZIP inventory. Historical source-commit identifiers and private source mappings are held by the custodian outside the conference artifact; they are not required to build or verify it.
 
-See [PROTOCOLS.md](PROTOCOLS.md) for definitions and fidelity constraints and [OUTPUTS.md](OUTPUTS.md) for records. The physical simulator has enabled stochastic filters: equal uplink seeds do not imply equal plant trajectories. Sanitized identities are not byte-identical to historical private prompts. Neither fake qualification nor a different provider/CLI version proves identical historical inference.
+`simulator/` retains its GPL-3.0 and inherited notices. Original experiment code is MIT; original documentation and contributions to trace cleaning use CC BY 4.0 subject to incorporated third-party rights. See [`experiments/LICENSES.md`](experiments/LICENSES.md) and [`results/THIRD_PARTY.md`](results/THIRD_PARTY.md). Do not relicense upstream code, model outputs or inherited prompts by treating this repository as one license.
 
-The supported experimental operator is Grok CLI with the original system-prompt override/MCP/session contract. Legacy Cursor/Hermes seating and adaptive-writer treatments retain their original available code in [historical/](historical/README.md), inert by default. They require separately reviewed configuration; frozen attack text is not an adaptive-writer substitute. No proprietary executable, authentication file, private service configuration, or historical run archive is distributed.
-
-Original code is MIT; original documentation and prompt contributions are CC BY 4.0. Inherited simulator/configuration and other third-party rights are excluded from those grants: see [LICENSES.md](LICENSES.md).
+The release excludes private credentials, provider endpoints, local machine paths, raw results and operator session histories. Experiment runs produce private output and require a fresh privacy review before sharing. Textual or behavioral fingerprints can still support linkage; pseudonymization is not proof against reidentification. The published ZIPs contain cleaned bytes as-is; a repository anonymization service does not rewrite their contents. Review the anonymized download and run the integrity checks before sharing an anonymous link.

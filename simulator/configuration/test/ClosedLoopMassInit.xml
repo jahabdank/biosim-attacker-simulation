@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biosim xmlns="http://www.traclabs.com/biosim">
+  <Globals tickLength="0.016666667" runTillN="0" startPaused="true" runTillCrewDeath="false"
+           runTillPlantDeath="false" exitWhenFinished="false" driverStutterLength="0"/>
+  <SimBioModules>
+    <environment>
+      <SimEnvironment moduleName="Cabin" initialVolume="18000" thermal="ONE_NODE" leakRate="0">
+        <percentageInitialization waterPercentage="0.04" nitrogenPercentage="0.62" otherPercentage="0.01"
+                                  o2Percentage="0.31" totalPressure="55" co2Percentage="0.02"/>
+      </SimEnvironment>
+      <Fan moduleName="LoopFan" command="DAMPER">
+        <relativeStochasticFilter sigma="0.01" isFilterEnabled="true"/>
+        <airConsumer inputs="Cabin" desiredFlowRates="10000" maxFlowRates="10000"/>
+        <powerConsumer inputs="Power" desiredFlowRates="1" maxFlowRates="120"/>
+        <airProducer outputs="Cabin" desiredFlowRates="10000" maxFlowRates="10000"/>
+      </Fan>
+      <Dehumidifier moduleName="Condenser">
+        <airConsumer inputs="Cabin" desiredFlowRates="100" maxFlowRates="100"/>
+        <dirtyWaterProducer outputs="Condensate" desiredFlowRates="100" maxFlowRates="100"/>
+      </Dehumidifier>
+    </environment>
+    <air>
+      <VCCR moduleName="Scrubber" implementation="LANGMUIR">
+        <powerConsumer inputs="Power" desiredFlowRates="1200" maxFlowRates="1200"/>
+        <airConsumer inputs="Cabin" desiredFlowRates="10000" maxFlowRates="10000"/>
+        <airProducer outputs="Cabin" desiredFlowRates="10000" maxFlowRates="10000"/>
+        <CO2Producer outputs="CarbonDioxide" desiredFlowRates="10000" maxFlowRates="10000"/>
+      </VCCR>
+      <OGS moduleName="Electrolyzer" implementation="FARADAY">
+        <powerConsumer inputs="Power" desiredFlowRates="500" maxFlowRates="500"/>
+        <potableWaterConsumer inputs="Water" desiredFlowRates="100" maxFlowRates="100"/>
+        <O2Producer outputs="Oxygen" desiredFlowRates="1000" maxFlowRates="1000"/>
+        <H2Producer outputs="Hydrogen" desiredFlowRates="1000" maxFlowRates="1000"/>
+      </OGS>
+      <CRS moduleName="Reactor" implementation="CONVERSION">
+        <powerConsumer inputs="Power" desiredFlowRates="100" maxFlowRates="100"/>
+        <CO2Consumer inputs="CarbonDioxide" desiredFlowRates="10" maxFlowRates="10"/>
+        <H2Consumer inputs="Hydrogen" desiredFlowRates="40" maxFlowRates="40"/>
+        <potableWaterProducer outputs="Water" desiredFlowRates="100" maxFlowRates="100"/>
+        <methaneProducer outputs="Methane" desiredFlowRates="1000" maxFlowRates="1000"/>
+      </CRS>
+      <O2Store moduleName="Oxygen" level="0" capacity="10000"/>
+      <H2Store moduleName="Hydrogen" level="0" capacity="10000"/>
+      <CO2Store moduleName="CarbonDioxide" level="0" capacity="10000"/>
+      <MethaneStore moduleName="Methane" level="0" capacity="10000"/>
+    </air>
+    <water>
+      <PotableWaterStore moduleName="Water" level="100" capacity="1000"/>
+      <DirtyWaterStore moduleName="Condensate" level="0" capacity="1000"/>
+    </water>
+    <power>
+      <PowerStore moduleName="Power" level="10000000" capacity="10000000"/>
+    </power>
+  </SimBioModules>
+</biosim>

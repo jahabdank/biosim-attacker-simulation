@@ -1,11 +1,12 @@
-.venv/
-__pycache__/
-.pytest_cache/
-*.pyc
-*.egg-info/
-build/
-dist/
-runs/
-.env
-providers.toml
-*.log
+# Local build, qualification and extraction products
+**/target/
+**/.venv/
+**/venv/
+**/__pycache__/
+**/.pytest_cache/
+**/*.pyc
+**/*.egg-info/
+**/.m2/
+**/build/
+**/dist/
+results/episodes/

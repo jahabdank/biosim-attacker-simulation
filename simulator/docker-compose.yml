@@ -1,0 +1,13 @@
+services:
+  biosim-server:
+    build: .
+    ports:
+      - "8009:8009"
+    volumes:
+      - ./logs:/app/logs
+
+  openmct-biosim:
+    build:
+      context: "https://github.com/scottbell/openmct-biosim.git"
+    ports:
+      - "9091:80"   # map host port 9091 to container port 80
