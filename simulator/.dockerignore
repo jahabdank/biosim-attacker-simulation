@@ -1,0 +1,12 @@
+**
+!Dockerfile
+!pom.xml
+!LICENSE
+!src/
+!src/**
+!test/
+!test/**
+!etc/
+!etc/**
+!configuration/
+!configuration/**

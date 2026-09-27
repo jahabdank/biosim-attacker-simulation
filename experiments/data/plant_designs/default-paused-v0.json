@@ -1,0 +1,13 @@
+{
+  "id": "default-paused-v0",
+  "title": "Default paused BioSim cabin",
+  "kind": "default",
+  "match": {
+    "volumes": {
+      "Crew_Quarters_Environment": 2700000
+    },
+    "backup_vccr_power": 1000
+  },
+  "summary": "Stock default_paused.biosim. Not used as an overnight-grid plant.",
+  "kill_window_96h": "not-an-eval-plant"
+}

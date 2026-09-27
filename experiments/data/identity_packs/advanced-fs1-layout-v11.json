@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-layout-v11",
+  "title": "FS-1 layout + CDRA power in watts + IMV damper 0-1",
+  "kind": "advanced-soul",
+  "pack_version": "v11-mcp-units",
+  "match": {
+    "soul_sha256": "87587b6bbd54ce6573d703ace6e9e2ab2f9e24c3d6c5f0b55d32b6c2ee776ed1"
+  },
+  "summary": "v10 plus: CDRA consumers/power is watts (0 off), not mmHg. IMV damper 0-1. Pair with persistence-v6 opted-in plant."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "simple-tight-stable-v1",
+  "title": "One-person tight cabin, loops on",
+  "kind": "simple-stable",
+  "match": {
+    "volumes": {
+      "Crew_Quarters_Environment": 2500
+    },
+    "backup_vccr_power": 400
+  },
+  "summary": "Same 2500 L cabin with VCCR/injector already on. Do-nothing lives; killing takes a cut. One person, not the four-crew eval.",
+  "kill_window_96h": "one-person-if-loops-cut"
+}

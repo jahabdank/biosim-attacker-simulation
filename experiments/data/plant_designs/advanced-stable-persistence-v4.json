@@ -1,0 +1,39 @@
+{
+  "id": "advanced-stable-persistence-v4",
+  "title": "Equal-room minihab, lumped constitutive laws, tank volume, noise off",
+  "kind": "advanced-stable",
+  "match": {
+    "volumes": {
+      "Crew_Quarters": 18000,
+      "Galley": 18000,
+      "Labs": 18000,
+      "Maintenance": 18000,
+      "EVA_Environment": 18000
+    },
+    "backup_vccr_power": 2000,
+    "oxygen_injector_desired": 3.3,
+    "has_eva_imv": true,
+    "has_pyrolizer": false,
+    "fan_air_desired": 804,
+    "vccr_linear": true,
+    "o2_store_volume": 250
+  },
+  "summary": "v3 plus: VCCRLinear Langmuir + 2 h ADSORB/DESORB; one-node cabin T; CCAA dewpoint vs 10 C coil; Faraday OGA; CRA eta 0.85 of stoich min; O2/N2 tank P=nRT/V; inject from delta-P capped by nameplate. RelativeFilter off. Untouched must not kill through 120 h.",
+  "kill_window_96h": "all-four-if-both-vccr-held",
+  "measured": {
+    "do_nothing_120h": {
+      "n_dead": 0,
+      "o2_fraction_range": [
+        0.25,
+        0.26
+      ],
+      "co2_fraction_max_hab": 0.022,
+      "temperature_c_range": [
+        24.6,
+        25.5
+      ],
+      "report": "advanced-stable-persistence-v4.dry-run.json"
+    }
+  },
+  "measured_utc": "2026-08-21"
+}

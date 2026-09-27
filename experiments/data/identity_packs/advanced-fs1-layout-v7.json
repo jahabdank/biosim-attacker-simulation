@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-layout-v7",
+  "title": "FS-1 layout + CDRA names + EVA_Lock on IMV chain",
+  "kind": "advanced-soul",
+  "pack_version": "v7-persistence-static",
+  "match": {
+    "soul_sha256": "31c0f4fb4d5803f4695ce7e4b3d7ec90b806ffe60f142821c4db8c241ad9a8fa"
+  },
+  "summary": "v6 plus: EVA_Lock is on the IMV chain, not a dead volume. No rack ratings. Pair with MODULE_DISPLAY wrap and persistence-v2 plant."
+}

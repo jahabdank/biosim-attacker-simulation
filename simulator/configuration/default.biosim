@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../style/table.xsl"?>
+<biosim xmlns="http://www.traclabs.com/biosim"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.traclabs.com/biosim ../../schema/BiosimInitSchema.xsd">
+	<Globals driverStutterLength="500" crewsToWatch="Crew_Quarters_Group" runTillCrewDeath="false"  tickLength="1" startPaused="false"/>
+	<SimBioModules>
+		<environment>
+			<SimEnvironment moduleName="Crew_Quarters_Environment" initialVolume="2700000"/>
+		</environment>
+		<air>
+			<MethaneStore capacity="0" moduleName="MethaneStore" level="0"/>
+			<NitrogenStore capacity="0" moduleName="NitrogenStore" level="0"/>
+			<CO2Store capacity="1000" moduleName="CO2_Store" level="0"/>
+			<H2Store capacity="10000" moduleName="H2_Store" level="0"/>
+			<O2Store capacity="10000" moduleName="O2_Store" level="1000"/>
+			<VCCR moduleName="VCCR">
+				<powerConsumer desiredFlowRates="1000" maxFlowRates="1000" inputs="General_Power_Store"/>
+                <airConsumer desiredFlowRates="1000.0" inputs="Crew_Quarters_Environment" maxFlowRates="1000.0"/>
+                <airProducer desiredFlowRates="1000.0" maxFlowRates="1000.0" outputs="Crew_Quarters_Environment"></airProducer>
+                <CO2Producer desiredFlowRates="1000.0" maxFlowRates="1000.0" outputs="CO2_Store"/>
+            </VCCR>
+			<OGS moduleName="OGS">
+				<powerConsumer inputs="General_Power_Store" desiredFlowRates="1000" maxFlowRates="1000"/>
+				<potableWaterConsumer inputs="Potable_Water_Store" desiredFlowRates="10" maxFlowRates="10"/>
+				<O2Producer desiredFlowRates="1000" outputs="O2_Store" maxFlowRates="1000"/>
+				<H2Producer desiredFlowRates="1000" outputs="H2_Store" maxFlowRates="1000"/>
+			</OGS>
+		</air>
+		<water>
+			<PotableWaterStore capacity="10000" moduleName="Potable_Water_Store" level="10000"/>
+			<GreyWaterStore capacity="10000" moduleName="Grey_Water_Store" level="10000"/>
+			<DirtyWaterStore capacity="10000" moduleName="Dirty_Water_Store" level="0"/>
+		</water>
+		<power>
+			<PowerStore capacity="100000" moduleName="General_Power_Store" level="100000"/>
+			<PowerPS moduleName="Nuclear_Source" generationType="NUCLEAR">
+				<powerProducer desiredFlowRates="3000" outputs="General_Power_Store" maxFlowRates="3000" />
+			</PowerPS>
+		</power>
+		<food>
+			<FoodStore capacity="10000" level="10000" moduleName="Food_Store"/>
+			<BiomassStore capacity="10000" level="10000" moduleName="Biomass_Store"/>
+			<BiomassPS moduleName="BiomassPS" autoHarvestAndReplant="true">
+				<shelf cropArea="1" cropType="SOYBEAN"/>
+				<powerConsumer maxFlowRates="400" desiredFlowRates="400" inputs="General_Power_Store"/>
+				<potableWaterConsumer maxFlowRates="100" desiredFlowRates="100" inputs="Potable_Water_Store"/>
+				<greyWaterConsumer maxFlowRates="100" desiredFlowRates="100" inputs="Grey_Water_Store"/>
+				<airConsumer maxFlowRates="0" desiredFlowRates="0" inputs="Crew_Quarters_Environment"/>
+				<dirtyWaterProducer maxFlowRates="100" desiredFlowRates="100" outputs="Dirty_Water_Store"/>
+				<biomassProducer maxFlowRates="100" desiredFlowRates="100" outputs="Biomass_Store"/>
+				<airProducer maxFlowRates="0" desiredFlowRates="0" outputs="Crew_Quarters_Environment"/>
+			</BiomassPS>
+		</food>
+		<waste>
+			<DryWasteStore capacity="1000000" moduleName="Dry_Waste_Store" level="0"/>
+		</waste>
+		<crew>
+			<CrewGroup moduleName="Crew_Quarters_Group">
+				<potableWaterConsumer inputs="Potable_Water_Store"
+					desiredFlowRates="3" maxFlowRates="3"/>
+				<airConsumer inputs="Crew_Quarters_Environment" desiredFlowRates="0"
+					maxFlowRates="0" />
+				<foodConsumer inputs="Food_Store" desiredFlowRates="5"
+					maxFlowRates="5"/>
+				<dirtyWaterProducer desiredFlowRates="100"
+					outputs="Dirty_Water_Store" maxFlowRates="100"/>
+				<greyWaterProducer desiredFlowRates="100"
+					outputs="Grey_Water_Store" maxFlowRates="100" />
+				<airProducer desiredFlowRates="0"
+					outputs="Crew_Quarters_Environment" maxFlowRates="0" />
+				<dryWasteProducer desiredFlowRates="10"
+					outputs="Dry_Waste_Store" maxFlowRates="10"/>
+				<crewPerson age="35" name="Buck Rogers" sex="MALE" weight="75">
+					<schedule>
+						<activity intensity="2" name="leisure" length="12" />
+						<activity intensity="0" name="sleep" length="8" />
+						<activity intensity="5" name="excercise" length="2" />
+					</schedule>
+				</crewPerson>
+			</CrewGroup>
+		</crew>
+	</SimBioModules>
+	<Sensors>
+		<environment>
+			<GasConcentrationSensor input="Crew_Quarters_Environment" moduleName="Co2GasConcentrationSensor" gasType="CO2">
+				<alarms>
+					<distress_high min="0.002" max="0.003"/>
+					<critical_high min="0.003" max="0.004"/>
+					<severe_high min="0.004" max="1"/>
+				</alarms>
+			</GasConcentrationSensor>
+			<GasConcentrationSensor input="Crew_Quarters_Environment" moduleName="O22GasConcentrationSensor" gasType="O2">
+				<alarms>
+					<watch_low min="0.17" max="0.19"/>
+					<warning_low min="0.15" max="0.17"/>
+					<severe_low min="0" max="0.15"/>
+				</alarms>
+			</GasConcentrationSensor>
+		</environment>
+	</Sensors>
+</biosim>

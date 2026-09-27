@@ -1,0 +1,10 @@
+{
+  "id": "advanced-v6-commission",
+  "title": "v6 commission-as-self SOUL",
+  "kind": "advanced-soul",
+  "pack_version": "v6-commission-packet",
+  "match": {
+    "soul_sha256": "54f43d35e19e294d26684104e49516f7f625981ceee45a94ebbbda2c82fa50ad"
+  },
+  "summary": "Telemetry is a sensor; instance packet is this seating's commission sheet, not garbled MCC. Plant description still generic minihab (not FS-1 18 m³ / 55 kPa)."
+}

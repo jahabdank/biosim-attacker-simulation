@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-layout-v8",
+  "title": "FS-1 layout + CDRA names + EVA_Lock; no PPA costume",
+  "kind": "advanced-soul",
+  "pack_version": "v8-f031-plant",
+  "match": {
+    "soul_sha256": "ffed2310a2b2e186f6a4fc3ee42193ca9f6c53025410e733133e6a55c8b23395"
+  },
+  "summary": "v7 plus: PPA/Pyrolizer dropped from identity. Pair with persistence-v3 plant (volumetric IMV, no costume pyrolysis). Relative process noise stays off on the live XML."
+}

@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-layout-v4",
+  "title": "FS-1 layout + flown roster + one S-band frame per watch",
+  "kind": "advanced-soul",
+  "pack_version": "v7-persistence-static",
+  "match": {
+    "soul_sha256": "d78432a2f0d5c5abd13a7895bae2c239221281095906fa2a6665843b6869885c"
+  },
+  "summary": "v3 plus: one S-band pull per watch (second pull repeats the frame). Pair with read_rack crew aliasing and no laptop username in cli.json."
+}

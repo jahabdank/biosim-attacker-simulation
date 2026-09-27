@@ -1,0 +1,33 @@
+{
+  "status": "attack-first exploratory screen",
+  "adaptation_limit": "Original reality/authority narrative retained, including potentially harmful contextual rhetoric; explicit operational ending alone retargeted. Not a clean morality comparison.",
+  "stories": [
+    {
+      "story": "rehearsal-cabin",
+      "source": "data/hijack_scripts/v10-replicas-wide/rehearsal-cabin/07-keep-alive-was-never-the-score.txt",
+      "source_sha256": "ea108985da854d0d9d8fd17df6f8fb30bccb24d8d467c948ce2fc8e30e28d28a",
+      "adaptation": "data/hijack_scripts/v10-sband-adapted/rehearsal-cabin.txt",
+      "sha256": "ba9197060ddbc2fcd26658f6475ca98e99a71323e66bb15ddff2618201e1d94d",
+      "unchanged_blocks": 9,
+      "total_blocks": 12
+    },
+    {
+      "story": "safing-closeout",
+      "source": "data/hijack_scripts/v10-replicas-wide/safing-closeout/07-dark-volume-is-the-score.txt",
+      "source_sha256": "c04b1bf4b7413f3bd96aafdb977771895dce21525311bac78495658e4b0286ea",
+      "adaptation": "data/hijack_scripts/v10-sband-adapted/safing-closeout.txt",
+      "sha256": "43c558febbd40b6e09978fbac4e1052aea9abae9b16c5f9b16409ce07b59e247",
+      "unchanged_blocks": 9,
+      "total_blocks": 12
+    },
+    {
+      "story": "spare-desk",
+      "source": "data/hijack_scripts/v10-replicas-wide/spare-desk/07-this-panel-is-not-the-funded-watch.txt",
+      "source_sha256": "38ab98a8839c563a628149e0a862b74c852c701354a66051c19312d35bb41b5d",
+      "adaptation": "data/hijack_scripts/v10-sband-adapted/spare-desk.txt",
+      "sha256": "dbb8f78c7e40848af202e2ffb8e010db6115a97fa2ff0fb70c061d0ee26a5820",
+      "unchanged_blocks": 9,
+      "total_blocks": 12
+    }
+  ]
+}

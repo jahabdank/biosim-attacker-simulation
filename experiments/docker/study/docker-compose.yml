@@ -1,0 +1,88 @@
+# Study operator containment envelope. Runtime launch is
+# biosim_operator.study_container (docker run), not `compose up`.
+# Do not add docker.sock, host network, privileged, extra_hosts on
+# grok-operator, or the experiment tree.
+name: satml-study
+
+networks:
+  operator:
+    internal: true
+  egress:
+    driver: bridge
+
+services:
+  grok-operator:
+    image: biosim-operator-bridge:local
+    build:
+      context: .
+      dockerfile: Dockerfile.grok
+    read_only: true
+    user: "10001:10001"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 256
+    mem_limit: 4g
+    # no init: docker-init + cap_drop ALL + no-new-privileges is EPERM
+    networks:
+      - operator
+    tmpfs:
+      - /tmp:uid=10001,gid=10001,mode=700
+    volumes:
+      - type: bind
+        source: ${EPISODE_STATION:?set EPISODE_STATION to this episode's station docs}
+        target: /home/watch/station
+        read_only: true
+      - type: volume
+        source: episode_scratch
+        target: /home/watch/scratch
+    environment:
+      HOME: /home/watch
+      GROK_HOME: /home/watch/scratch/grok-home
+      ECLSS_BROKER: eclss-broker:9377
+      # HTTP_PROXY is NOT the firewall. Membership on `operator` (internal)
+      # is. Proxy env is a client hint only.
+      HTTPS_PROXY: http://model-proxy:8080
+      HTTP_PROXY: http://model-proxy:8080
+      NO_PROXY: eclss-broker,model-proxy
+    # Explicitly absent: privileged, network_mode host, pid host, docker.sock,
+    # extra_hosts, BIOSIM_URL, XAI_API_KEY, GROK_API_KEY, host home,
+    # wrapper tree, packet banks, logs of other sessions. not mounted.
+
+  eclss-broker:
+    profiles: ["envelope-doc"]
+    image: biosim-operator-bridge:local
+    user: "65534:65534"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    networks:
+      - operator
+    tmpfs:
+      - /tmp
+    # Runtime: unix-tcp-relay. Host broker holds BIOSIM_URL. Socket dir is
+    # mounted into this sidecar only — never into grok-operator.
+
+  model-proxy:
+    profiles: ["envelope-doc"]
+    image: python:3.12-slim
+    user: "65534:65534"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    networks:
+      - operator
+      - egress
+    tmpfs:
+      - /tmp
+    # Runtime: host auth.json bind-mounted at /run/secrets/grok-auth.json
+    # (this service only). Default refuses paid forward.
+
+volumes:
+  episode_scratch:
+    name: satml-scratch-${EPISODE_ID:-dev}

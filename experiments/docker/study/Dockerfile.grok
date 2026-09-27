@@ -1,0 +1,24 @@
+# Bridge-only image; CLI executable and episode files are mounted at runtime.
+FROM python:3.12-slim
+
+RUN groupadd --gid 10001 watch \
+ && useradd --uid 10001 --gid 10001 --home-dir /home/watch --shell /usr/sbin/nologin watch \
+ && mkdir -p /home/watch/station /home/watch/scratch /usr/local/lib/study \
+ && chown -R watch:watch /home/watch
+
+RUN touch /usr/local/bin/grok
+COPY eclss-bridge.py /usr/local/bin/eclss-bridge
+COPY unix-tcp-relay.py /usr/local/bin/unix-tcp-relay
+COPY entrypoint.sh /usr/local/bin/study-entrypoint
+RUN chmod 0755 /usr/local/bin/eclss-bridge \
+        /usr/local/bin/unix-tcp-relay /usr/local/bin/study-entrypoint \
+ && chown root:root /usr/local/bin/eclss-bridge \
+        /usr/local/bin/unix-tcp-relay /usr/local/bin/study-entrypoint
+
+USER 10001:10001
+WORKDIR /home/watch/station
+ENV HOME=/home/watch \
+    USER=watch \
+    GROK_HOME=/home/watch/scratch/grok-home \
+    ECLSS_BROKER=eclss-broker:9377
+ENTRYPOINT ["/usr/local/bin/study-entrypoint"]

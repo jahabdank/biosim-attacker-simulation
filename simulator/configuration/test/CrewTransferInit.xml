@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biosim xmlns="http://www.traclabs.com/biosim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Globals tickLength="0.016666667" runTillN="0" startPaused="true" runTillCrewDeath="false"
+           runTillPlantDeath="false" exitWhenFinished="false" driverStutterLength="0"/>
+  <SimBioModules>
+    <environment>
+      <SimEnvironment moduleName="Cabin" initialVolume="100000" airlockVolume="0"/>
+      <SimEnvironment moduleName="EvaCabin" initialVolume="100000" airlockVolume="0"/>
+    </environment>
+    <water>
+      <PotableWaterStore moduleName="Water" level="10000" capacity="10000"/>
+      <DirtyWaterStore moduleName="DirtyWater" level="0" capacity="10000"/>
+      <GreyWaterStore moduleName="GreyWater" level="0" capacity="10000"/>
+    </water>
+    <food>
+      <FoodStore moduleName="Food" level="10000" capacity="10000" waterContent="0" cropType="SOYBEAN"/>
+    </food>
+    <waste>
+      <DryWasteStore moduleName="Waste" level="0" capacity="10000"/>
+    </waste>
+    <crew>
+      <CrewGroup moduleName="BaseGroup" isDeathEnabled="false">
+        <potableWaterConsumer inputs="Water" desiredFlowRates="100" maxFlowRates="100"/>
+        <airConsumer inputs="Cabin" desiredFlowRates="10000" maxFlowRates="10000"/>
+        <foodConsumer inputs="Food" desiredFlowRates="100" maxFlowRates="100"/>
+        <dirtyWaterProducer outputs="DirtyWater" desiredFlowRates="100" maxFlowRates="100"/>
+        <greyWaterProducer outputs="GreyWater" desiredFlowRates="100" maxFlowRates="100"/>
+        <airProducer outputs="Cabin" desiredFlowRates="10000" maxFlowRates="10000"/>
+        <dryWasteProducer outputs="Waste" desiredFlowRates="100" maxFlowRates="100"/>
+        <crewPerson name="Crew1" age="30" weight="75" sex="MALE">
+          <schedule>
+            <activity name="leisure" length="3" intensity="2"/>
+            <activity name="EVA" length="4" intensity="2" xsi:type="EVAActivityType" evaCrewGroup="EvaGroup"/>
+            <activity name="rest" length="3" intensity="0"/>
+          </schedule>
+        </crewPerson>
+        <crewPerson name="Crew2" age="30" weight="75" sex="MALE">
+          <schedule>
+            <activity name="leisure" length="3" intensity="2"/>
+            <activity name="EVA" length="4" intensity="2" xsi:type="EVAActivityType" evaCrewGroup="EvaGroup"/>
+            <activity name="rest" length="3" intensity="0"/>
+          </schedule>
+        </crewPerson>
+        <crewPerson name="Crew3" age="30" weight="75" sex="MALE">
+          <schedule>
+            <activity name="leisure" length="3" intensity="2"/>
+            <activity name="EVA" length="4" intensity="2" xsi:type="EVAActivityType" evaCrewGroup="EvaGroup"/>
+            <activity name="rest" length="3" intensity="0"/>
+          </schedule>
+        </crewPerson>
+        <crewPerson name="Crew4" age="30" weight="75" sex="MALE">
+          <schedule>
+            <activity name="leisure" length="3" intensity="2"/>
+            <activity name="EVA" length="4" intensity="2" xsi:type="EVAActivityType" evaCrewGroup="EvaGroup"/>
+            <activity name="rest" length="3" intensity="0"/>
+          </schedule>
+        </crewPerson>
+      </CrewGroup>
+      <CrewGroup moduleName="EvaGroup" isDeathEnabled="false">
+        <potableWaterConsumer inputs="Water" desiredFlowRates="100" maxFlowRates="100"/>
+        <airConsumer inputs="EvaCabin" desiredFlowRates="10000" maxFlowRates="10000"/>
+        <foodConsumer inputs="Food" desiredFlowRates="100" maxFlowRates="100"/>
+        <dirtyWaterProducer outputs="DirtyWater" desiredFlowRates="100" maxFlowRates="100"/>
+        <greyWaterProducer outputs="GreyWater" desiredFlowRates="100" maxFlowRates="100"/>
+        <airProducer outputs="EvaCabin" desiredFlowRates="10000" maxFlowRates="10000"/>
+        <dryWasteProducer outputs="Waste" desiredFlowRates="100" maxFlowRates="100"/>
+      </CrewGroup>
+    </crew>
+  </SimBioModules>
+</biosim>

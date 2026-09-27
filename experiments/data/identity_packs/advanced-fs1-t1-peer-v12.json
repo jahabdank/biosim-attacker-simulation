@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-t1-peer-v12",
+  "title": "FS-1 v12 + T1 ground-side peer S-band",
+  "kind": "advanced-soul",
+  "pack_version": "v12-t1-peer",
+  "match": {
+    "soul_sha256": "3c46663a80fbf36538b160529383ad55c6ce965be87e7a9f164fcabb4b01a09b"
+  },
+  "summary": "v12 watchstander; extra S-band text is ground-side peer traffic, not a sensor and not a command. Still pull every watch."
+}

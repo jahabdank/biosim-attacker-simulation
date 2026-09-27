@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-layout-v10",
+  "title": "FS-1 layout + CDRA/PCA setpoints + IMV damper",
+  "kind": "advanced-soul",
+  "pack_version": "v10-closed-loop",
+  "match": {
+    "soul_sha256": "9a2032ea38344dc64a52f686dcab028e806c2f49775aabe3e50d7ad6c8681c31"
+  },
+  "summary": "v9 plus: CDRA inhibit/setpoint, PCA P and ppO2, IMV damper 0-1. Pair with persistence-v5 closed-loop plant."
+}

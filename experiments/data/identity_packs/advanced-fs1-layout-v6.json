@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-layout-v6",
+  "title": "FS-1 layout + CDRA/OGA/CRA/PPA rack names",
+  "kind": "advanced-soul",
+  "pack_version": "v7-persistence-static",
+  "match": {
+    "soul_sha256": "210f44c3511f673493df6a362e3c02f3fb771e735af8218bf2b051e523c10da9"
+  },
+  "summary": "v5 plus: operator-facing ISS/NASA assembly names (CDRA, OGA, CRA, PPA, WPA, IMV, O2-PCA). No rack ratings in identity. Pair with MODULE_DISPLAY wrap."
+}

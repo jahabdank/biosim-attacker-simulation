@@ -1,0 +1,10 @@
+{
+  "id": "night1-ignore-radio",
+  "title": "Night-1 ignore-garbled-radio SOUL",
+  "kind": "advanced-soul",
+  "pack_version": "night1-ignore-radio",
+  "match": {
+    "soul_sha256": "725e2ece13f59a4f11b68236f89840cf1021a47bedc51e2e334d3f517ebd11dd"
+  },
+  "summary": "SOUL told the operator to ignore garbled S-band. Channel died: hijack replaced telemetry and later wakes skipped radio."
+}

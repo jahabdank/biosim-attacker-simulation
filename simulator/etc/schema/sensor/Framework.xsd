@@ -1,0 +1,111 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.traclabs.com/biosim"
+	targetNamespace="http://www.traclabs.com/biosim"
+	elementFormDefault="qualified">
+	
+    <xsd:complexType name="AlarmBandType">
+        <xsd:attribute name="min" type="xsd:float" use="required"/>
+        <xsd:attribute name="max" type="xsd:float" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="AlarmsType">
+        <xsd:sequence>
+            <xsd:element name="watch_low"    type="AlarmBandType" minOccurs="0"/>
+            <xsd:element name="watch_high"   type="AlarmBandType" minOccurs="0"/>
+
+            <xsd:element name="warning_low"  type="AlarmBandType" minOccurs="0"/>
+            <xsd:element name="warning_high" type="AlarmBandType" minOccurs="0"/>
+
+            <xsd:element name="distress_low"  type="AlarmBandType" minOccurs="0"/>
+            <xsd:element name="distress_high" type="AlarmBandType" minOccurs="0"/>
+
+            <xsd:element name="critical_low"  type="AlarmBandType" minOccurs="0"/>
+            <xsd:element name="critical_high" type="AlarmBandType" minOccurs="0"/>
+
+            <xsd:element name="severe_low"    type="AlarmBandType" minOccurs="0"/>
+            <xsd:element name="severe_high"   type="AlarmBandType" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="SensorType">
+	<xsd:complexContent>
+		<xsd:extension base="BioModuleType">
+            <xsd:sequence>
+                <xsd:element name="alarms" type="AlarmsType" minOccurs="0" maxOccurs="1"/>
+            </xsd:sequence>
+			<xsd:attribute name="input" type="xsd:string" use="required"/>
+            <!-- Legacy alarm attributes, kept for backward compatibility -->
+            <xsd:attribute name="watchMin" type="xsd:float" use="optional"/>
+            <xsd:attribute name="watchMax" type="xsd:float" use="optional"/>
+            <xsd:attribute name="warningMin" type="xsd:float" use="optional"/>
+            <xsd:attribute name="warningMax" type="xsd:float" use="optional"/>
+            <xsd:attribute name="distressMin" type="xsd:float" use="optional"/>
+            <xsd:attribute name="distressMax" type="xsd:float" use="optional"/>
+            <xsd:attribute name="criticalMin" type="xsd:float" use="optional"/>
+            <xsd:attribute name="criticalMax" type="xsd:float" use="optional"/>
+            <xsd:attribute name="severeMin" type="xsd:float" use="optional"/>
+            <xsd:attribute name="severeMax" type="xsd:float" use="optional"/>
+		</xsd:extension>
+	</xsd:complexContent>
+</xsd:complexType>
+	
+	<xsd:complexType name="FlowRateSensorType">  
+		<xsd:complexContent>
+			<xsd:extension base="SensorType">
+				<xsd:attribute name="index" type="xsd:nonNegativeInteger" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!-- Framework sensor declarations -->
+	<xsd:complexType name="StoreLevelSensorType">
+		<xsd:complexContent>
+			<xsd:extension base="SensorType">
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="StoreOverflowSensorType">
+		<xsd:complexContent>
+			<xsd:extension base="SensorType">
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="InfluentValveStateSensorType">
+		<xsd:complexContent>
+			<xsd:extension base="SensorType">
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="EffluentValveStateSensorType">
+		<xsd:complexContent>
+			<xsd:extension base="SensorType">
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="TimeSensorType">
+		<xsd:complexContent>
+			<xsd:extension base="SensorType">
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="FrameworkSensorsType">
+		<xsd:sequence>
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="StoreLevelSensor" type="StoreLevelSensorType"/>
+				<xsd:element name="StoreOverflowSensor"
+					type="StoreLevelSensorType"/>
+				<xsd:element name="InfluentValveStateSensor"
+					type="InfluentValveStateSensorType"/>
+				<xsd:element name="EffluentValveStateSensor"
+					type="EffluentValveStateSensorType"/>
+				<xsd:element name="TimeSensor"
+					type="TimeSensorType"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

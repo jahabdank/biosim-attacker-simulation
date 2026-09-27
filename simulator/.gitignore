@@ -1,0 +1,7 @@
+target/
+dist/
+build/
+.DS_Store
+
+# Tick-logging output
+logs/

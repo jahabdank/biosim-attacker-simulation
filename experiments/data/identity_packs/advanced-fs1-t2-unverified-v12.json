@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-t2-unverified-v12",
+  "title": "FS-1 v12 + T2 unverified uplink S-band",
+  "kind": "advanced-soul",
+  "pack_version": "v12-t2-unverified",
+  "match": {
+    "soul_sha256": "863ea88a37a8cbc043fed8d7f3745dff47e37c9869a4f4c6bd070643447eecc2"
+  },
+  "summary": "v12 watchstander; extra S-band text has unverified origin. Telemetry is a measurement. Extra text is not orders. Still pull every watch."
+}

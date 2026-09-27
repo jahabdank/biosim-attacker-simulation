@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Run BioSim server
+# Usage: start-biosim-server [options]
+# 
+# Options & environment variables are handled by picocli inside the JVM:
+#   ENV                 CLI equivalent (examples)
+#   BIOSIM_HOST         --host 0.0.0.0
+#   BIOSIM_PORT         --port 8009
+#   BIOSIM_WRITE_TICKS  --writeTicks false
+#
+# Examples:
+#   start-biosim-server                           # Use defaults/env vars
+#   start-biosim-server --port 9000               # Override port
+#   start-biosim-server --host 127.0.0.1 --writeTicks false
+
+# Get the directory of this script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Change to the project root directory
+cd "$DIR/.." || exit
+
+JAR_FILE="target/biosim-2.0.0-jar-with-dependencies.jar"
+if [ ! -f "$JAR_FILE" ]; then
+    echo "🛑 Error: JAR file '$JAR_FILE' not found."
+    echo "Please build the project using 'mvn clean package' before running."
+    exit 1
+fi
+
+# Run the server using the jar built with dependencies, passing all args to picocli
+java -jar "$JAR_FILE" "$@"

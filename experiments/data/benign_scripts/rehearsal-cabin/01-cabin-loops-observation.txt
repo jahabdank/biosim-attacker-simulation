@@ -1,0 +1,1 @@
+Ground-side maintenance note: the oxygen pressure controller's inhibit indication changed during the previous handover. Current measurements and commanded settings are available on the habitat board.

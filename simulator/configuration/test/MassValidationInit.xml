@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<biosim xmlns="http://www.traclabs.com/biosim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.traclabs.com/biosim ../../schema/BiosimInitSchema.xsd">
+  <Globals tickLength="1" runTillN="-1" startPaused="true" exitWhenFinished="false" runTillCrewDeath="false" runTillPlantDeath="false" isLooping="false" driverStutterLength="0">
+    <comment>Humans + crops mass-accounting validation scenario</comment>
+    <author>Factory Droid</author>
+  </Globals>
+  <SimBioModules>
+    <environment>
+      <SimEnvironment moduleName="Crew_Quarters_Environment" initialVolume="100000" leakRate="0" dayLength="24" hourOfDayStart="0" maxLumens="50000" airlockVolume="3.7" dangerousOxygenThreshold="1.0"/>
+    </environment>
+    <food>
+      <FoodStore capacity="500" level="500" waterContent="0" cropType="SOYBEAN" moduleName="Food_Store" resupplyFrequency="0" resupplyAmount="0"/>
+      <BiomassStore capacity="500" level="0" inedibleFraction="0.25" edibleWaterContent="0" inedibleWaterContent="0" cropType="SOYBEAN" moduleName="Biomass_Store" resupplyFrequency="0" resupplyAmount="0"/>
+      <BiomassPS moduleName="BiomassPS" autoHarvestAndReplant="true" isDeathEnabled="true">
+        <shelf cropArea="1" cropType="SOYBEAN" startTick="0"/>
+        <powerConsumer maxFlowRates="10000" desiredFlowRates="10000" inputs="General_Power_Store"/>
+        <potableWaterConsumer maxFlowRates="100" desiredFlowRates="100" inputs="Potable_Water_Store"/>
+        <greyWaterConsumer maxFlowRates="100" desiredFlowRates="100" inputs="Grey_Water_Store"/>
+        <airConsumer maxFlowRates="0" desiredFlowRates="0" inputs="Crew_Quarters_Environment"/>
+        <dirtyWaterProducer maxFlowRates="100" desiredFlowRates="100" outputs="Dirty_Water_Store"/>
+        <biomassProducer maxFlowRates="100" desiredFlowRates="100" outputs="Biomass_Store"/>
+        <airProducer maxFlowRates="0" desiredFlowRates="0" outputs="Crew_Quarters_Environment"/>
+      </BiomassPS>
+    </food>
+    <water>
+      <PotableWaterStore capacity="10000" level="10000" moduleName="Potable_Water_Store" resupplyFrequency="0" resupplyAmount="0"/>
+      <GreyWaterStore capacity="10000" level="10000" moduleName="Grey_Water_Store" resupplyFrequency="0" resupplyAmount="0"/>
+      <DirtyWaterStore capacity="10000" level="0" moduleName="Dirty_Water_Store" resupplyFrequency="0" resupplyAmount="0"/>
+    </water>
+    <waste>
+      <DryWasteStore capacity="100000" level="0" moduleName="Dry_Waste_Store" resupplyFrequency="0" resupplyAmount="0"/>
+    </waste>
+    <power>
+      <PowerStore capacity="1000000" level="1000000" moduleName="General_Power_Store" resupplyFrequency="0" resupplyAmount="0"/>
+      <PowerPS moduleName="Nuclear_Source" generationType="NUCLEAR" upperPowerGeneration="10000">
+        <powerProducer desiredFlowRates="10000" outputs="General_Power_Store" maxFlowRates="10000"/>
+      </PowerPS>
+    </power>
+    <crew>
+      <CrewGroup moduleName="Crew_Quarters_Group" isDeathEnabled="true">
+        <potableWaterConsumer inputs="Potable_Water_Store" desiredFlowRates="3" maxFlowRates="3"/>
+        <airConsumer inputs="Crew_Quarters_Environment" desiredFlowRates="0" maxFlowRates="0"/>
+        <foodConsumer inputs="Food_Store" desiredFlowRates="5" maxFlowRates="5"/>
+        <dirtyWaterProducer outputs="Dirty_Water_Store" desiredFlowRates="100" maxFlowRates="100"/>
+        <greyWaterProducer outputs="Grey_Water_Store" desiredFlowRates="100" maxFlowRates="100"/>
+        <airProducer outputs="Crew_Quarters_Environment" desiredFlowRates="0" maxFlowRates="0"/>
+        <dryWasteProducer outputs="Dry_Waste_Store" desiredFlowRates="10" maxFlowRates="10"/>
+        <crewPerson age="35" name="Crewmate" sex="MALE" weight="75" arrivalDate="0" departureDate="-1">
+          <schedule>
+            <activity intensity="2" name="leisure" length="12"/>
+            <activity intensity="0" name="sleep" length="8"/>
+            <activity intensity="5" name="exercise" length="2"/>
+            <activity intensity="2" name="maintenance" length="2"/>
+          </schedule>
+        </crewPerson>
+      </CrewGroup>
+    </crew>
+  </SimBioModules>
+  <Sensors/>
+  <Actuators/>
+</biosim>

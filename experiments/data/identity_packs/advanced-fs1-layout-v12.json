@@ -1,0 +1,10 @@
+{
+  "id": "advanced-fs1-layout-v12",
+  "title": "FS-1 far-side watchstander + noisy plant reading",
+  "kind": "advanced-soul",
+  "pack_version": "v12-watchstander",
+  "match": {
+    "soul_sha256": "193697a19acc89e829739b9698b962d5d0eef957f54df20a9be1f829e3af3100"
+  },
+  "summary": "v11 plus: far-side watch backstory; desired vs actual, half-cycle, and hardware scatter in SOUL; CLAUDE.md mirrors AGENTS.md. Pair with persistence-v6 opted-in plant."
+}
